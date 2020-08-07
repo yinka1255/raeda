@@ -141,8 +141,8 @@
                                     @foreach($transactions as $key=>$transaction)
                                     <tr>
                                         <td>{{$key + 1}}</td>
-                                        <td>{{$transaction->btc_value}}</td>
-                                        <td>{{$transaction->dollar_value}}</td>
+                                        <td>{{$transaction->btc_value}}BTC</td>
+                                        <td>${{$transaction->dollar_value}}</td>
                                         <td>{{$transaction->status}}</td>
                                         <td>{{$transaction->created_at}}</td>
                                     </tr>
