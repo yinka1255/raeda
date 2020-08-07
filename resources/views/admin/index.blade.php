@@ -8,7 +8,7 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="" />
 
-	<title>Yul | Dashboard</title>
+	<title>AirTnd | Dashboard</title>
 	@include('admin.includes.head')
 
 </head>
@@ -25,10 +25,10 @@
 		
 				<div class="tile-stats tile-red">
 					<div class="icon"><i class="entypo-chart-bar"></i></div>
-					<div class="num" data-start="0" data-end="{{$programs_count}}" data-postfix="" data-duration="1500" data-delay="0">0</div>
+					<div class="num" data-start="0" data-end="{{$customers_count}}" data-postfix="" data-duration="1500" data-delay="0">0</div>
 		
-					<h3>Programs</h3>
-					<p>Number of programs</p>
+					<h3>Customers</h3>
+					<p>Number of customers</p>
 				</div>
 		
 			</div>
@@ -37,10 +37,10 @@
 		
 				<div class="tile-stats tile-green">
 					<div class="icon"><i class="entypo-chart-bar"></i></div>
-					<div class="num" data-start="0" data-end="{{$books_count}}" data-postfix="" data-duration="1500" data-delay="600">0</div>
+					<div class="num" data-start="0" data-end="{{$transactions_count}}" data-postfix="" data-duration="1500" data-delay="600">0</div>
 		
-					<h3>E-Books</h3>
-					<p>Number of E-books</p>
+					<h3>Transactions</h3>
+					<p>Number of transactions</p>
 				</div>
 		
 			</div>
@@ -51,10 +51,10 @@
 		
 				<div class="tile-stats tile-aqua">
 					<div class="icon"><i class="entypo-chart-bar"></i></div>
-					<div class="num" data-start="0" data-end="{{$students_count}}" data-postfix="" data-duration="1500" data-delay="1200">0</div>
+					<div class="num" data-start="0" data-end="{{$customers_count_year}}" data-postfix="" data-duration="1500" data-delay="1200">0</div>
 		
-					<h3>Students</h3>
-					<p>No. students this year</p>
+					<h3>Customers</h3>
+					<p>No. customers this year</p>
 				</div>
 		
 			</div>
@@ -63,10 +63,10 @@
 		
 				<div class="tile-stats tile-blue">
 					<div class="icon"><i class="entypo-chart-bar"></i></div>
-					<div class="num" data-start="0" data-end="{{$sales_count}}" data-postfix="" data-duration="1500" data-delay="1800">0</div>
+					<div class="num" data-start="0" data-end="{{$transactions_count}}" data-postfix="" data-duration="1500" data-delay="1800">0</div>
 		
-					<h3>Sales</h3>
-					<p>No. sales this year</p>
+					<h3>Transactions</h3>
+					<p>No. transactions this year</p>
 				</div>
 		
 			</div>

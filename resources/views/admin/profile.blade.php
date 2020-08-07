@@ -8,7 +8,7 @@
 	<meta name="description" content="Neon Vendor Panel" />
 	<meta name="author" content="" />
 
-	<title>Latikash | Profile</title>
+	<title>AirTnd | Profile</title>
 	@include('admin.includes.head')
 
 </head>

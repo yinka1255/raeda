@@ -7,7 +7,7 @@
             <!-- logo -->
             <div class="logo">
                 <a href="{{url('/')}}">
-                    <img src="{{asset('public/main/images/logo.jpg')}}" width="70px"/>
+                    <img src="{{asset('public/main/images/logo.png')}}" width="80px" style="padding: 15px;background: #fff;"/>
                 </a>
             </div>
 
@@ -45,38 +45,25 @@
                     <span class="title">Manage admin Users </span>
                 </a>
             </li>
-            <li @if(Request::segment(2) == "student") class="active" @endif>
-                    <a href="{{url('admin/students')}}">
-                        <i class="entypo-users"></i>
-                        <span class="title">Students </span>
-                    </a>
-                </li>
-            <li @if(Request::segment(2) == "programs") class="active" @endif>
-                <a href="{{url('admin/programs')}}">
-                    <i class="entypo-folder"></i>
-                    <span class="title">Manage Programs </span>
+            <li @if(Request::segment(2) == "customers") class="active" @endif>
+                <a href="{{url('admin/customers')}}">
+                    <i class="entypo-users"></i>
+                    <span class="title">Customers </span>
                 </a>
             </li>
-            <li @if(Request::segment(2) == "books") class="active" @endif>
-                <a href="{{url('admin/books')}}">
-                    <i class="entypo-book"></i>
-                    <span class="title">Manage E-books </span>
+            <li @if(Request::segment(2) == "bonuses") class="active" @endif>
+                <a href="{{url('admin/bonuses')}}">
+                    <i class="entypo-tag"></i>
+                    <span class="title">Mng Bonus </span>
                 </a>
             </li>
-            {{--
-            <li @if(Request::segment(2) == "videos") class="active" @endif>
-                <a href="{{url('admin/videos')}}">
-                    <i class="entypo-picture"></i>
-                    <span class="title">Manage Gallery(Videos) </span>
+            <li @if(Request::segment(2) == "transactions") class="active" @endif>
+                <a href="{{url('admin/transactions')}}">
+                    <i class="entypo-credit-card"></i>
+                    <span class="title">Transactions </span>
                 </a>
             </li>
-            --}}
-            <li @if(Request::segment(2) == "pictures") class="active" @endif>
-                <a href="{{url('admin/pictures')}}">
-                    <i class="entypo-picture"></i>
-                    <span class="title">Manage Gallery(Pictures) </span>
-                </a>
-            </li>
+            
             
             
         </ul>

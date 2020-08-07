@@ -7,14 +7,11 @@ use Illuminate\Support\Facades\Route;
 use Session;
 use Redirect;
 use App\User;
-use App\Student;
-use App\Program;
-use App\Category;
-use App\Course;
-use App\Book;
-use App\CategoryStudent;
-use App\Sale;
-use App\Picture;
+use App\Customer;
+use App\Bonus;
+use App\UsedBonus;
+use App\BonusSetting;
+use App\Transaction;
 use App\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -33,19 +30,19 @@ public function index(){
         $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
                         ->where("admins.user_id", $user->id)
                         ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-        $books_count = Book::count();
-        $programs_count = Program::count();
-        $students_count = Student::whereYear('created_at', Carbon::now()->year)->count();
-        $sales_count = Sale::whereYear('created_at', Carbon::now()->year)->count();
-        return view('admin/index')->with(["loggedInUser"=>$loggedInUser, "books_count"=>$books_count, "programs_count"=>$programs_count, "students_count"=>$students_count, "sales_count"=>$sales_count]);
+        $customers_count = Customer::count();
+        $transactions_count = Transaction::count();
+        $customers_count_year = Customer::whereYear('created_at', Carbon::now()->year)->count();
+        $transactions_count_year = Transaction::whereYear('created_at', Carbon::now()->year)->count();
+        return view('admin/index')->with(["loggedInUser"=>$loggedInUser, "customers_count_year"=>$customers_count_year, "transactions_count_year"=>$transactions_count_year, "customers_count"=>$customers_count, "transactions_count"=>$transactions_count]);
     }
     
     public function admins(){
     
         $user = Auth::user();
-        if(!$user || $user->type != 1){
+        if($user == null || $user->type != 1){
             Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
+            return redirect('admin/login');
         }
         $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
                         ->where("admins.user_id", $user->id)
@@ -58,216 +55,85 @@ public function index(){
         return view('admin/admins')->with(["admins"=>$admins, "loggedInUser"=>$loggedInUser]);
     } 
 
-    public function students(){
+    public function transactions(){
     
         $user = Auth::user();
-        if(!$user || $user->type != 1){
+        if($user == null || $user->type != 1){
             Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
+            return redirect('admin/login');
         }
         $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
                         ->where("admins.user_id", $user->id)
                         ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
 
-        $students = Student::join("users", "students.user_id", "=", "users.id")
-                    ->orderBy("users.id", "desc")
-                    ->select("students.*", "users.id as user_id", "users.status as user_status")->get();
+        $transactions = Transaction::join("customers", "customers.id", "=", "transactions.customer_id")
+                    ->orderBy("transactions.id", "desc")
+                    ->select("transactions.*", "customers.id as customer_id", "customers.name as customer_name")->get();
 
-        return view('admin/students')->with(["students"=>$students, "loggedInUser"=>$loggedInUser]);
+        return view('admin/transactions')->with(["transactions"=>$transactions, "loggedInUser"=>$loggedInUser]);
     } 
-
-    public function student($student_id){
-        $user = Auth::user();
-        if(!$user || $user->type != 1){
-            Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
-        }
-        $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
-                        ->where("admins.user_id", $user->id)
-                        ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-
-        $my_programs = CategoryStudent::where("category_students.student_id", $student_id)
-                        ->join("programs", "programs.id", "=", "category_students.program_id")
-                        ->join("categories", "categories.id", "=", "category_students.category_id")
-        ->select("programs.*", "categories.id as category_id", "categories.name as category_name", "categories.method_of_delivery as category_method_of_delivery", "categories.duration as category_duration", "categories.sessions as category_sessions", "categories.days_of_lecture as category_days_of_lecture", "category_students.amount as category_student_price")
-                    ->get();
-        $student = Student::join("users", "students.user_id", "=", "users.id")
-                    ->orderBy("users.id", "desc")
-                    ->where([ "students.id"=>$student_id])
-                    ->select("students.*", "users.id as user_id", "users.status as user_status")->first();
-        $sales = Sale::join("books", "sales.book_id", "books.id")
-                    ->select("books.name as book_name", "books.image", "books.author as author", "sales.*")
-                    ->where(["sales.status"=> 1, "student_id"=>$student_id])->get();
-        return view('admin/student')->with(["student"=>$student, "my_programs"=>$my_programs, "sales"=> $sales,  "loggedInUser"=>$loggedInUser]);
-    } 
-
-    public function programs(){
-        $user = Auth::user();
-        if(!$user || $user->type != 1){
-            Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
-        }
-        $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
-                        ->where("admins.user_id", $user->id)
-                        ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-        $programs = Program::where("status", 1)->get();
-        return view('admin/programs')->with(["programs"=>$programs, "loggedInUser"=>$loggedInUser]);
-    } 
-
-    public function program($program_id){
-        $user = Auth::user();
-        if(!$user || $user->type != 1){
-            Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
-        }
-        $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
-                        ->where("admins.user_id", $user->id)
-                        ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-        $program = Program::where("id", $program_id)->first();
-        $categories = Category::where("program_id", $program_id)->get();
-        return view('admin/program')->with(["program"=>$program, "categories"=>$categories, "loggedInUser"=>$loggedInUser]);
-    } 
+    public function bonuses(){
     
-
-    public function courses($program_id, $category_id){
         $user = Auth::user();
-        if(!$user || $user->type != 1){
+        if($user == null || $user->type != 1){
             Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
+            return redirect('admin/login');
         }
         $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
                         ->where("admins.user_id", $user->id)
                         ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-        $program = Program::where("id", $program_id)->first();
-        $category = Category::where("id", $category_id)->first();
-        $courses = Course::where("category_id", $category_id)->get();
-        return view('admin/courses')->with(["program"=>$program, "category"=>$category, "courses"=>$courses, "loggedInUser"=>$loggedInUser]);
+
+        $bonuses = Bonus::all();
+        $bonus_total = Bonus::sum('amount');
+        $used_bonus = UsedBonus::sum('amount');
+        $balance = $bonus_total - $used_bonus;
+        $bonus_setting = BonusSetting::first();
+
+        return view('admin/bonuses')->with(["bonuses"=>$bonuses, "balance"=>$balance, "bonus_setting"=>$bonus_setting, "loggedInUser"=>$loggedInUser]);
     } 
 
-    public function editCategory($program_id, $category_id){
+    public function customers(){
+    
         $user = Auth::user();
-        if(!$user || $user->type != 1){
+        if($user == null || $user->type != 1){
             Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
+            return redirect('admin/login');
         }
         $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
                         ->where("admins.user_id", $user->id)
                         ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-        $program = Program::where("id", $program_id)->first();
-        $category = Category::where("id", $category_id)->first();
-        return view('admin/edit_category')->with(["program"=>$program, "category"=>$category,"loggedInUser"=>$loggedInUser]);
+
+        $customers = Customer::join("users", "customers.user_id", "=", "users.id")
+                    ->orderBy("users.id", "desc")
+                    ->select("customers.*", "users.id as user_id", "users.status as user_status")->get();
+
+        return view('admin/customers')->with(["customers"=>$customers, "loggedInUser"=>$loggedInUser]);
     } 
 
-    public function newCourse($program_id, $category_id){
+    public function customer($customer_id){
         $user = Auth::user();
-        if(!$user || $user->type != 1){
+        if($user == null || $user->type != 1){
             Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
+            return redirect('admin/login');
         }
         $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
                         ->where("admins.user_id", $user->id)
                         ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-        $program = Program::where("id", $program_id)->first();
-        $category = Category::where("program_id", $program_id)->first();
-        return view('admin/new_course')->with(["program"=>$program, "category"=>$category, "loggedInUser"=>$loggedInUser]);
+
+        $customer = Customer::join("users", "customers.user_id", "=", "users.id")
+                    ->orderBy("users.id", "desc")
+                    ->where([ "customers.id"=>$customer_id])
+                    ->select("customers.*", "users.id as user_id", "users.status as user_status")->first();
+        $transactions = Transaction::where(["status"=> 1, "customer_id"=>$customer_id])->get();
+        return view('admin/customer')->with(["customer"=>$customer, "transactions"=>$transactions, "loggedInUser"=>$loggedInUser]);
     } 
 
-    public function editCourse($program_id, $category_id, $id){
-        $user = Auth::user();
-        if(!$user || $user->type != 1){
-            Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
-        }
-        $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
-                        ->where("admins.user_id", $user->id)
-                        ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-        $program = Program::where("id", $program_id)->first();
-        $category = Category::where("program_id", $program_id)->first();
-        $course = Course::where("id", $id)->first();
-        return view('admin/edit_course')->with(["program"=>$program, "category"=>$category, "course"=>$course, "loggedInUser"=>$loggedInUser]);
-    } 
-
-    public function pictures(){
-        $user = Auth::user();
-        if(!$user || $user->type != 1){
-            Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
-        }
-        $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
-                        ->where("admins.user_id", $user->id)
-                        ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-        $pictures = Picture::where("status", 1)->get();
-        return view('admin/pictures')->with(["pictures"=>$pictures, "loggedInUser"=>$loggedInUser]);
-    } 
-
-    public function newPicture(){
-        $user = Auth::user();
-        if(!$user || $user->type != 1){
-            Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
-        }
-        $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
-                        ->where("admins.user_id", $user->id)
-                        ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-        return view('admin/new_picture')->with([ "loggedInUser"=>$loggedInUser]);
-    } 
-
-    public function editPicture($program_id, $category_id, $id){
-        $user = Auth::user();
-        if(!$user || $user->type != 1){
-            Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
-        }
-        $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
-                        ->where("admins.user_id", $user->id)
-                        ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-        $picture = Picture::where("id", $id)->first();
-        return view('admin/edit_picture')->with(["picture"=>$picture, "loggedInUser"=>$loggedInUser]);
-    } 
-
-    public function books(){
-        $user = Auth::user();
-        if(!$user || $user->type != 1){
-            Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
-        }
-        $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
-                        ->where("admins.user_id", $user->id)
-                        ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-        $books = Book::where("status", 1)->get();
-        return view('admin/books')->with(["books"=>$books, "loggedInUser"=>$loggedInUser]);
-    } 
-
-    public function newBook(){
-        $user = Auth::user();
-        if(!$user || $user->type != 1){
-            Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
-        }
-        $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
-                        ->where("admins.user_id", $user->id)
-                        ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-        return view('admin/new_book')->with([ "loggedInUser"=>$loggedInUser]);
-    } 
-
-    public function editBook($book_id){
-        $user = Auth::user();
-        if(!$user || $user->type != 1){
-            Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
-        }
-        $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
-                        ->where("admins.user_id", $user->id)
-                        ->select("admins.*", "users.id as user_id", "users.status as user_status")->first();
-        $book = Book::where("id", $book_id)->first();
-        return view('admin/edit_book')->with(["book"=>$book, "loggedInUser"=>$loggedInUser]);
-    } 
     
     public function profile(){
         $user = Auth::user();
-        if(!$user || $user->type != 1){
+        if($user == null || $user->type != 1){
             Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
+            return redirect('admin/login');
         }
         $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
                         ->where("admins.user_id", $user->id)
@@ -278,9 +144,9 @@ public function index(){
 
     public function newAdmin(){
         $user = Auth::user();
-        if(!$user || $user->type != 1){
+        if($user == null || $user->type != 1){
             Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
+            return redirect('admin/login');
         }
         $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
                         ->where("admins.user_id", $user->id)
@@ -292,9 +158,9 @@ public function index(){
     
     public function editAdmin($id){
         $user = Auth::user();
-        if(!$user || $user->type != 1){
+        if($user == null || $user->type != 1){
             Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
+            return redirect('admin/login');
         }
         $loggedInUser = Admin::join("users", "admins.user_id", "=", "users.id")
                         ->where("admins.user_id", $user->id)
@@ -335,75 +201,6 @@ public function index(){
         return back();
     }  
 
-    public function deactivateCourse($id){
-    
-        $course = Course::where("id", $id)->first();
-
-        $course->status = 2;
-
-        $course->save();
-
-        Session::flash('success', 'Thank you, course has been deactivated successfully');
-        return back();
-    }  
-    public function activateCourse($id){
-    
-        $course = Course::where("id", $id)->first();
-
-        $course->status = 1;
-
-        $course->save();
-
-        Session::flash('success', 'Thank you, course has been activated successfully');
-        return back();
-    }  
-    public function deactivatePicture($id){
-    
-        $picture = Picture::where("id", $id)->first();
-
-        $picture->status = 2;
-
-        $picture->save();
-
-        Session::flash('success', 'Thank you, picture has been deactivated successfully');
-        return back();
-    }  
-    public function activatePicture($id){
-    
-        $picture = Picture::where("id", $id)->first();
-
-        $picture->status = 1;
-
-        $picture->save();
-
-        Session::flash('success', 'Thank you, picture has been activated successfully');
-        return back();
-    }  
-    public function deactivateBook($id){
-    
-        $book = Book::where("id", $id)->first();
-    
-        $book->status = 2;
-    
-        $book->save();
-    
-        Session::flash('success', 'Thank you, book has been deactivated successfully');
-        return back();
-    }  
-    public function activateBook($id){
-    
-        $book = Book::where("id", $id)->first();
-    
-        $book->status = 1;
-    
-        $book->save();
-    
-        Session::flash('success', 'Thank you, book has been activated successfully');
-        return back();
-    }  
-    
-    
-
     
 
     public function sendWelcomeMail($member){
@@ -442,144 +239,42 @@ public function index(){
         Session::flash('success', 'An Email has been sent to your account. Pls check to proceed');
         return back();
     }
-
-    public function saveCourse(Request $request){
+    public function addBonus(Request $request){
         $check = User::where("email", $request->input("email"))->first();
         if($check != null){
             Session::flash('error', 'Sorry! Email already exist');
             return back();
         }  
-        $course = new Course;
-        $course->name = $request->input("name");
-        $course->price = $request->input("price");
-        //$course->program_id = $request->input("program_id");
-        $course->category_id = $request->input("category_id");
-        $course->status = 1;
-        if($course->save()){
-           if($course->save()){
-                //$this->adminMail($request->input("email"), $request->input("name"), $password);
-                Session::flash('success', 'Thank you, course has been created successfully');
-                return redirect('/admin/courses/'.$request->input("program_id").'/'.$request->input("category_id"));
-            }else{
-                Session::flash('error', 'Sorry! An error occured while trying to create course');
-                return back();
-            }    
+        $bonus = new Bonus;
+        $bonus->amount = $request->input("amount");
+        if($bonus->save()){
+            Session::flash('success', 'Thank you, bonus has been saved successfully');
+            return back();
         }else{
-            Session::flash('error', 'Sorry! An error occured while trying to create account');
-                return back();
+            Session::flash('error', 'Sorry! An error occured while trying to save bonus');
+            return back();
         }    
     }  
 
-    public function updateCourse(Request $request){
-        
-        $course = Course::where("id", $request->input("course_id"))->first();
-        $course->name = $request->input("name");
-        $course->price = $request->input("price");
-        //$course->program_id = $request->input("program_id");
-        //$course->category_id = $request->input("category_id");
-        $course->status = 1;
-        if($course->save()){
-           if($course->save()){
-                //$this->adminMail($request->input("email"), $request->input("name"), $password);
-                Session::flash('success', 'Thank you, course has been updated successfully');
-                return redirect('/admin/courses/'.$request->input("program_id").'/'.$request->input("category_id"));
-            }else{
-                Session::flash('error', 'Sorry! An error occured while trying to create course');
-                return back();
-            }    
+    public function updateBonusSetting(Request $request){
+        $check = User::where("email", $request->input("email"))->first();
+        if($check != null){
+            Session::flash('error', 'Sorry! Email already exist');
+            return back();
+        }  
+        $bonus_setting = BonusSetting::where('id', 1)->first();
+        $bonus_setting->percentage = $request->input("percentage");
+        $bonus_setting->minimum_amount_to_qualify = $request->input("minimum_amount_to_qualify");
+        $bonus_setting->no_of_correct_boxes = $request->input("no_of_correct_boxes");
+        if($bonus_setting->save()){
+            Session::flash('success', 'Thank you, bonus setting has been saved successfully');
+            return back();
         }else{
-            Session::flash('error', 'Sorry! An error occured while trying to create account');
-                return back();
+            Session::flash('error', 'Sorry! An error occured while trying to save bonus setting');
+            return back();
         }    
     }  
-    public function savePicture(Request $request){
-        $check = User::where("email", $request->input("email"))->first();
-        if($check != null){
-            Session::flash('error', 'Sorry! Email already exist');
-            return back();
-        }  
-        $picture = new Picture;
-        $picture->name = $request->input("name");
-        if($request->hasFile('picture')){
-            $image = $request->file('picture');
-            $imageName  = time() . '.' . $image->getClientOriginalExtension();
-            $path = storage_path()."/app/public/";
-            $image->move($path, $imageName);
-            $picture->image = $imageName;
-            // list($width, $height) = getimagesize($path.$imageName);
-            // $product->width = $width;
-            // $product->height = $height;
-        }
-        $picture->status = 1;
-        if($picture->save()){
-            //$this->adminMail($request->input("email"), $request->input("name"), $password);
-            Session::flash('success', 'Thank you, picture has been created successfully');
-            return redirect('/admin/pictures');
-        }else{
-            Session::flash('error', 'Sorry! An error occured while trying to create picture');
-            return back();
-        } 
-    }  
-    public function saveBook(Request $request){
-        $check = User::where("email", $request->input("email"))->first();
-        if($check != null){
-            Session::flash('error', 'Sorry! Email already exist');
-            return back();
-        }  
-        $book = new Book;
-        $book->name = $request->input("name");
-        $book->author = $request->input("author");
-        $book->price = $request->input("price");
-        if($request->hasFile('book')){
-            $image = $request->file('book');
-            $imageName  = time() . '.' . $image->getClientOriginalExtension();
-            $path = storage_path()."/app/public/";
-            $image->move($path, $imageName);
-            $book->book = $imageName;
-            // list($width, $height) = getimagesize($path.$imageName);
-            // $product->width = $width;
-            // $product->height = $height;
-        }
-        if($request->hasFile('image')){
-            $image = $request->file('image');
-            $imageName  = time() . '.' . $image->getClientOriginalExtension();
-            $path = storage_path()."/app/public/";
-            $image->move($path, $imageName);
-            $book->image = $imageName;
-            // list($width, $height) = getimagesize($path.$imageName);
-            // $product->width = $width;
-            // $product->height = $height;
-        }
-        $book->status = 1;
-        if($book->save()){
-            //$this->adminMail($request->input("email"), $request->input("name"), $password);
-            Session::flash('success', 'Thank you, book has been created successfully');
-            return redirect('/admin/books');
-        }else{
-            Session::flash('error', 'Sorry! An error occured while trying to create book');
-            return back();
-        } 
-    }  
-    public function updateBook(Request $request){
-        $check = User::where("email", $request->input("email"))->first();
-        if($check != null){
-            Session::flash('error', 'Sorry! Email already exist');
-            return back();
-        }  
-        $book = Book::where("id", $request->input('book_id'))->first();
-        $book->name = $request->input("name");
-        $book->price = $request->input("price");
-        
-        if($book->save()){
-            //$this->adminMail($request->input("email"), $request->input("name"), $password);
-            Session::flash('success', 'Thank you, book has been updated successfully');
-            return redirect('/admin/books');
-        }else{
-            Session::flash('error', 'Sorry! An error occured while trying to update book');
-            return back();
-        } 
-    }  
-    
+
     public function saveAdmin(Request $request){
         $check = User::where("email", $request->input("email"))->first();
         if($check != null){
@@ -623,39 +318,21 @@ public function index(){
         $user = User::where("id", $request->input("user_id"))->first();
         $user->email = $request->input("email");
         if($admin->save()){
-            $user->save();
-            return response()->json(['success' => true, 'message' => "Profile updated succeessfully"], 200);
+            //$this->adminMail($request->input("email"), $request->input("name"), $password);
+            Session::flash('success', 'Thank you, admin account has been updated successfully');
+            return back();
         }else{
-            return response()->json(['error' => true, 'message' => "An error occured while trying to update profile."], 200);
-        }    
-    }  
-
-    public function updateCategory(Request $request){
-    
-        $category = Category::where("id", $request->input("category_id"))->first();
-        $category->name = $request->input("name");
-        $category->method_of_delivery = $request->input("method_of_delivery");
-        $category->duration = $request->input("duration");
-        $category->days_of_lecture = $request->input("days_of_lecture");
-        $category->sessions = $request->input("sessions");
-        $category->registration_fee = $request->input("registration_fee");
-        $category->registration_details = $request->input("registration_details");
-        
-        if($category->save()){
-            Session::flash('success', 'Class updated successfully');
-                return back();
-        }else{
-            Session::flash('error', 'Sorry! An error occured.');
-                return back();
+            Session::flash('error', 'Sorry! An error occured while trying to update account');
+            return back();
         }    
     }  
 
     public function updateProfile(Request $request){
     
         $user = Auth::user();
-        if(!$user || $user->type != 1){
+        if($user == null || $user->type != 1){
             Session::flash('error', 'Sorry! You do not have access to this page');
-            return redirect('/login');
+            return redirect('admin/login');
         }
         $admin = Admin::where("admins.user_id", $user->id)->first();
         $admin->name = $request->input("name");

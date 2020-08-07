@@ -1,29 +1,23 @@
-<meta name="author" content="themesflat.com">
+<link rel="shortcut icon" href="{{asset('public/mantra/images/favicon.png')}}">
 
-<!-- Mobile Specific Metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- Template CSS Files -->
+<link rel="stylesheet" href="{{asset('public/mantra/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('public/mantra/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('public/mantra/css/magnific-popup.css')}}">
+<link rel="stylesheet" href="{{asset('public/mantra/css/select2.min.css')}}">
+<link rel="stylesheet" href="{{asset('public/mantra/css/style.css')}}">
+<link rel="stylesheet" href="{{asset('public/mantra/css/skins/orange.css')}}">
 
-<!-- Bootstrap  -->
-<link rel="stylesheet" type="text/css" href="{{asset('public/main/stylesheets/bootstrap.css')}}" >
+<!-- Live Style Switcher - demo only -->
+<link rel="alternate stylesheet" type="text/css" title="orange" href="{{asset('public/mantra/css/skins/orange.css')}}" />
+<link rel="alternate stylesheet" type="text/css" title="green" href="{{asset('public/mantra/css/skins/green.css')}}" />
+<link rel="alternate stylesheet" type="text/css" title="blue" href="{{asset('public/mantra/css/skins/blue.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{asset('public/mantra/css/styleswitcher.css')}}" />
 
-<!-- Theme Style -->
-<link rel="stylesheet" type="text/css" href="{{asset('public/main/stylesheets/style.css')}}">
-
-<!-- Responsive -->
-<link rel="stylesheet" type="text/css" href="{{asset('public/main/stylesheets/responsive.css')}}">
-
-<!-- REVOLUTION LAYERS STYLES -->
-<link rel="stylesheet" type="text/css" href="{{asset('public/main/revolution/css/layers.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/main/revolution/css/settings.css')}}">
-
-<!-- Colors -->
-<link rel="stylesheet" type="text/css" href="{{asset('public/main/stylesheets/colors/color1.css')}}" id="colors">
-
-<!-- Animation Style -->
-<link rel="stylesheet" type="text/css" href="{{asset('public/main/stylesheets/animate.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('public/main/stylesheets/twentytwenty.css')}}">
-
-<!-- Favicon and touch icons  -->
-<link href="{{url('public/main/icon/apple-touch-icon-48-precomposed.png')}}" rel="apple-touch-icon-precomposed" sizes="48x48">
-<link href="{{url('public/main/icon/apple-touch-icon-32-precomposed.png')}}" rel="apple-touch-icon-precomposed">
-<link href="{{url('public/main/icon/favicon.png')}}" rel="shortcut icon">
+<!-- Template JS Files -->
+<script src="{{asset('public/mantra/js/modernizr.js')}}"></script>
+    
+    
+    
+    
+    

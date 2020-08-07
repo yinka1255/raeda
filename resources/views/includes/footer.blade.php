@@ -1,67 +1,110 @@
-
-    <!-- Footer Start -->
-    <!--
-    <section class="footer" style="background-image: url({{asset('public/main/images/footer-bg.png')}})">
+<footer class="footer">
+    <!-- Footer Top Area Starts -->
+    <div class="top-footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="mb-5">
-                        <img src="{{asset('public/main/images/logo-light.png')}}" alt="" class="" height="24">
-                        <p class="text-white-50 my-4 font-size-15">Cras ultricies mi eu turpis sit hendrerit fringilla vestibulum ante ipsum primis in faucibus ultrices posuere cubilia.</p>
-                        <ul class="list-inline footer-social-icon-content">
-                            <li class="list-inline-item mr-4"><a href="#" class="footer-social-icon"><i class="" data-feather="facebook"></i></a></li>
-                            <li class="list-inline-item mr-4"><a href="#" class="footer-social-icon"><i class="" data-feather="twitter"></i></a></li>
-                            <li class="list-inline-item mr-4"><a href="#" class="footer-social-icon"><i class="" data-feather="instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="footer-social-icon"><i class="" data-feather="linkedin"></i></a></li>
+                <!-- Footer Widget Starts -->
+                <div class="col-sm-4 col-md-2">
+                    <h4>Our Company</h4>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="{{url('/')}}">Home</a></li>
+                            <li><a href="{{url('about')}}">About</a></li>
+                            <li><a href="{{url('services')}}">Services</a></li>
+                            <li><a href="{{url('contact')}}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-7 offset-lg-1">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h6 class="text-white text-uppercase mb-4">About Us</h6>
-                            <ul class="list-unstyled footer-sub-menu">
-                                <li><a href="#" class="footer-link">Works</a></li>
-                                <li><a href="#" class="footer-link">Strategy</a></li>
-                                <li><a href="#" class="footer-link">Releases</a></li>
-                                <li><a href="#" class="footer-link">Press</a></li>
-                                <li><a href="#" class="footer-link">Mission</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4">
-                            <h6 class="text-white text-uppercase mb-3">Customers</h6>
-                            <ul class="list-unstyled footer-sub-menu">
-                                <li><a href="#" class="footer-link">Tranding</a></li>
-                                <li><a href="#" class="footer-link">Popular</a></li>
-                                <li><a href="#" class="footer-link">Customers</a></li>
-                                <li><a href="#" class="footer-link">Features</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4">
-                            <h6 class="text-white text-uppercase mb-3">Support</h6>
-                            <ul class="list-unstyled footer-sub-menu">
-                                <li><a href="#" class="footer-link">Developers</a></li>
-                                <li><a href="#" class="footer-link">Support</a></li>
-                                <li><a href="#" class="footer-link">Customer Service</a></li>
-                                <li><a href="#" class="footer-link">Get Started</a></li>
-                                <li><a href="#" class="footer-link">Guide</a></li>
-                            </ul>
-                        </div>
+                <!-- Footer Widget Ends -->
+                <!-- Footer Widget Starts -->
+                <div class="col-sm-4 col-md-2">
+                    <h4>Help & Support</h4>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="{{url('faq')}}">FAQ</a></li>
+                            <li><a href="{{url('terms')}}">Terms of Services</a></li>
+                            <li><a href="javascript:void(0)"  data-toggle="modal" data-target="#meRegister">Register</a></li>
+                            <li><a href="javascript:void(0)"  data-toggle="modal" data-target="#meLogin">Login</a></li>
+                        </ul>
                     </div>
                 </div>
+                <!-- Footer Widget Ends -->
+                <!-- Footer Widget Starts -->
+                <div class="col-sm-4 col-md-3">
+                    <h4>Contact Us </h4>
+                    <div class="contacts">
+                        <div>
+                            <span>contact@website.com</span>
+                        </div>
+                        <div>
+                            <span>+1 888-670-4887</span>
+                        </div>
+                        <div>
+                            <span>San francisco CA94103 usa</span>
+                        </div>
+                        <div>
+                            <span>mon-sun 08am &#x21FE; 05pm</span>
+                        </div>
+                    </div>
+                    <!-- Social Media Profiles Starts -->
+                    <div class="social-footer">
+                        <ul>
+                            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <!-- Social Media Profiles Ends -->
+                </div>
+                <!-- Footer Widget Ends -->
+                <!-- Footer Widget Starts -->
+                <div class="col-sm-12 col-md-5">
+                    <!-- Facts Starts -->
+                    <div class="facts-footer">
+                        <div>
+                            <h5>$77.5B</h5>
+                            <span>Market cap</span>
+                        </div>
+                        <div>
+                            <h5>145K</h5>
+                            <span>daily transactions</span>
+                        </div>
+                        <div>
+                            <h5>700K</h5>
+                            <span>active accounts</span>
+                        </div>
+                        <div>
+                            <h5>127</h5>
+                            <span>supported countries</span>
+                        </div>
+                    </div>
+                    <!-- Facts Ends -->
+                    <hr>
+                    <!-- Supported Payment Cards Logo Starts -->
+                    <div class="payment-logos">
+                        <h4 class="payment-title">supported payment methods</h4>
+                        <img src="{{asset('public/mantra/images/icons/payment/american-express.png')}}" alt="american-express">
+                        <img src="{{asset('public/mantra/images/icons/payment/paypal.png')}}" alt="paypal">
+                    </div>
+                    <!-- Supported Payment Cards Logo Ends -->
+                </div>
+                <!-- Footer Widget Ends -->
             </div>
         </div>
-    </section>
-    -->
-    <div class="footer-alt py-3">
+    </div>
+    <!-- Footer Top Area Ends -->
+    <!-- Footer Bottom Area Starts -->
+    <div class="bottom-footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center">
-                        <p class="text-white-50 font-size-15 mb-0">2020 © TeamRondo solution. Design By <a href="#"/>Optisoft</a></p>
-                    </div>
+                <div class="col-xs-12">
+                    <!-- Copyright Text Starts -->
+                    <p class="text-center">Powred by  <a href="#" target="_blank">Andora-MFG</a></p>
+                    <!-- Copyright Text Ends -->
                 </div>
             </div>
         </div>
     </div>
-    <!-- Footer End -->
+    <!-- Footer Bottom Area Ends -->
+</footer>

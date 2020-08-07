@@ -77,7 +77,7 @@
                                                                         <table width="100%" cellspacing="0" cellpadding="0">
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td class="esd-block-image es-m-p0l es-m-txt-c es-p15t" align="left"><a href target="_blank"><img src="http://yul.ng/public/main/images/logo.jpg" alt width="80" style="display: block;"></a></td>
+                                                                                    <td class="esd-block-image es-m-p0l es-m-txt-c es-p15t" align="left"><a href target="_blank"><img src="http://airtnd/public/main/images/logo.jpg" alt width="80" style="display: block;"></a></td>
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
@@ -93,7 +93,7 @@
                                                                         <table width="100%" cellspacing="0" cellpadding="0">
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td class="esd-block-button es-p10t es-m-txt-c" align="right"><span class="es-button-border" style="border-radius: 4px; padding:4px; border-width: 1px; border-color: rgb(0, 0, 255); background: rgb(255, 255, 255);"><a href="https://yul.ng/contact/" class="es-button" target="_blank" style="border-radius: 4px; padding:4px; border-width: 1px; border-color: rgb(0, 0, 255); background: rgb(255, 255, 255);">Contact us</a></span></td>
+                                                                                    <td class="esd-block-button es-p10t es-m-txt-c" align="right"><span class="es-button-border" style="border-radius: 4px; padding:4px; border-width: 1px; border-color: rgb(0, 0, 255); background: rgb(255, 255, 255);"><a href="https://airtnd/contact/" class="es-button" target="_blank" style="border-radius: 4px; padding:4px; border-width: 1px; border-color: rgb(0, 0, 255); background: rgb(255, 255, 255);">Contact us</a></span></td>
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>
@@ -400,7 +400,7 @@
                                                                                                             <tbody>
                                                                                                                 <tr>
                                                                                                                     <td align="left" esd-links-underline="none" class="esd-block-text">
-                                                                                                                        <p><strong><a target="_blank" href="mailto:info@yul.ng" style="text-decoration: none;">info@yul.ng</a></strong></p>
+                                                                                                                        <p><strong><a target="_blank" href="mailto:info@airtnd" style="text-decoration: none;">info@airtnd</a></strong></p>
                                                                                                                     </td>
                                                                                                                 </tr>
                                                                                                             </tbody>

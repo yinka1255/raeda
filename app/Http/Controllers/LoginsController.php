@@ -34,7 +34,7 @@ class LoginsController extends Controller
             }  
             if($user->type == 2){
                 Session::flash('success', 'Authentication was successfull');
-                return redirect('students/profile');
+                return redirect('customers/profile');
                 
             }    
                 if($user->type == 1){
@@ -42,9 +42,49 @@ class LoginsController extends Controller
                 return redirect('admin/index');
             }   
            
-        }else{		
+        }
+        
+        else{		
                 Session::flash('error', 'Authentication failed. Kindly try again with valid details');
                 return back();
+        }
+
+    }
+
+    public function mobileAuthenticate(Request $request){
+    	$email = $request->input('email');
+        $password = $request->input('password');
+    	if (Auth::attempt(['email' => $email, 'password' => $password])){
+            $user = Auth::user();
+            $customer = Customer::where("user_id", $user->id)->first();
+            if($user->status == 2){
+                return response()->json(['error'=> 'Sorry! Your account has been deactivated']);
+            }  
+            if($user->type == 2){
+                return response()->json(['success'=> 'Authentication was successfull', "customer"=>$customer]);
+                
+            }    
+                if($user->type == 1){
+                    return response()->json(['error'=> 'Sorry! You cannot login with an admin account']);
+            }   
+           
+        }
+        else if (Auth::attempt(['phone' => $email, 'password' => $password])){
+            $user = Auth::user();
+            $customer = Customer::where("user_id", $user->id)->first();
+            if($user->status == 2){
+                return response()->json(['error'=> 'Sorry! Your account has been deactivated']);
+            }  
+            if($user->type == 2){
+                return response()->json(['success'=> 'Authentication was successfull', "customer"=>$customer]);
+                
+            }    
+                if($user->type == 1){
+                    return response()->json(['error'=> 'Sorry! You cannot login with an admin account']);
+            }   
+        }
+        else{		
+            return response()->json(['error'=> 'Authentication failed. Kindly try again with valid details']);
         }
 
     }

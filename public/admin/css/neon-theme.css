@@ -1211,19 +1211,19 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary {
   color: #fff;
-  background-color: #303641;
-  border-color: #252a32;
+  background-color: #f93e7e;
+  border-color: #f93e7e !important;
 }
 .btn-primary:focus,
 .btn-primary.focus {
   color: #fff;
   background-color: #1a1e24;
-  border-color: #000000;
+  border-color: #f93e7e;
 }
 .btn-primary:hover {
-  color: #fff;
-  background-color: #1a1e24;
-  border-color: #0b0d0f;
+  color: #f93e7e !important;
+  background-color: #fff;
+  border-color: #f93e7e;
 }
 .btn-primary:active,
 .btn-primary.active,

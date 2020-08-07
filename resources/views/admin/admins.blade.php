@@ -8,7 +8,7 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="" />
 
-	<title>Team rondo || Admin users</title>
+	<title>AirTnd || Admin users</title>
 	@include('admin.includes.head')
 
 </head>

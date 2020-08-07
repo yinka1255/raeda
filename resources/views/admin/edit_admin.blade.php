@@ -8,7 +8,7 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="" />
 
-	<title>Latikash | Edit Admin user</title>
+	<title>AirTnd | Edit Admin user</title>
 	@include('admin.includes.head')
 
 </head>
@@ -45,7 +45,7 @@
 				<br/><br/>
 				<form role="form" method="post" action="{{url('admin/update_admin')}}" class="form-horizontal form-groups-bordered">
 					{{ csrf_field() }}
-					<input type="hidden" name="id" value="{{$admin->user_id}}" />
+					<input type="hidden" name="user_id" value="{{$admin->user_id}}" />
 					<div class="form-group">
 						<label for="field-2" class="col-sm-3 control-label">Name</label>
 						<div class="col-sm-5">

@@ -10,7 +10,7 @@
 
 	<link rel="icon" href="{{asset('public/admin/images/favicon.ico')}}">
 
-	<title>Yul | Login</title>
+	<title>AirTnd | Login</title>
 
 	<link rel="stylesheet" href="{{asset('public/admin/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css')}}">
 	<link rel="stylesheet" href="{{asset('public/admin/css/font-icons/entypo/css/entypo.css')}}">
@@ -42,33 +42,19 @@
 
 <div class="login-container">
 	
-	<div class="login-header login-caret">
-		
-		<div class="login-content">
-			
-			<a href="{{url('/')}}" class="logo">
-			<img src="{{asset('public/main/images/logo.jpg')}}" width="70px"/>
-			</a>
-			
-			<p class="description">Dear user, kindly input your login details!</p>
-			
-			<!-- progress bar indicator -->
-			<div class="login-progressbar-indicator">
-				<h3>43%</h3>
-				<span>logging in...</span>
-			</div>
-		</div>
-		
-	</div>
+	
 	
 	<div class="login-progressbar">
 		<div></div>
 	</div>
 	
-	<div class="login-form">
+	<div class="login-form" style="margin-top: 120px;">
 		
 		<div class="login-content">
-			
+		<a href="{{url('/')}}" class="logo" >
+			<img src="{{asset('public/main/images/logo.png')}}" width="100px" style="padding: 15px;background: #fff;"/>
+			</a>
+			<br/><br/><br/>
 			<div class="form-login-error">
 				<h3>Invalid login</h3>
 				<p>Enter <strong>demo</strong>/<strong>demo</strong> as login and password.</p>
@@ -99,9 +85,6 @@
 					</button>
 				</div>
 				<!-- Implemented in v1.1.4 -->
-				<div class="form-group">
-					<em>- or -</em>
-				</div>
 				
 				{{--		
 				<div class="form-group">
