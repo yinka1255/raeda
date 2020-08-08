@@ -140,7 +140,7 @@ input[type=number] {
                     <div class="col-md-12 text-center">
                         <form class="bitcoin-calculator" id="">
                             <!-- Input #1 Starts -->
-                            <input class="form-input" id="btc_value" onkeyup="getDollar()" name="btc_value" value="1">
+                            <input class="form-input" id="btc_value" onkeyup="getDollar()" min="0.1"  step="0.1" name="btc_value" value="1">
                             <!-- Input #1 Ends -->
                             <div class="form-info"><i class="fa fa-bitcoin"></i></div>
                             <div class="form-equal">=</div>
@@ -237,7 +237,7 @@ input[type=number] {
                     <!-- Content Starts -->
                     <div class="col-sm-12 col-md-7 col-lg-6">
                         <h3 class="title-about">WE ARE ANDORA</h3>
-                        <p class="about-text">A place for everyone who wants to simply sell Bitcoins. Simply transfer bitcoin to our wallet address and upload screenshot of your tansaction. Then we pay you immediately your transaction is confirmed typically within 2 hrs, either through paypal or western union depending on which of the two you choose. Nothing extra. Join over 700,000 users from all over the world satisfied with our services.</p>
+                        <p class="about-text">A place for everyone who wants to simply sell Bitcoins. Simply transfer bitcoin to our wallet address and click on sell above. Then we pay you immediately your transaction is confirmed typically within 2 hrs, either through paypal or western union depending on which of the two you choose. Nothing extra. Join over 700,000 users from all over the world satisfied with our services.</p>
                         <ul class="nav nav-tabs">
                             <li class="active"><a data-toggle="tab" href="#menu1">Our Mission</a></li>
                             <li><a data-toggle="tab" href="#menu2">Our advantages</a></li>
@@ -535,14 +535,14 @@ input[type=number] {
   function getDollar(){
     var btc = $("#btc_value").val();
     $("#btc_value1").val(btc);
-    var dollar = btc * 12226.68;
+    var dollar = btc * 17226.68;
     $("#dollar_value").val(dollar.toFixed(2));
     $("#dollar_value1").val(dollar.toFixed(2));
   }
   function getDollar1(){
     var btc = $("#btc_value1").val();
     $("#btc_value").val(btc);
-    var dollar = btc * 12226.68;
+    var dollar = btc * 17226.68;
     $("#dollar_value").val(dollar.toFixed(2));
     $("#dollar_value1").val(dollar.toFixed(2));
   }
