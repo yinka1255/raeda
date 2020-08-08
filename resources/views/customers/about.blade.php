@@ -74,7 +74,7 @@
 
         </div>
     </div>
-    <div id="showSwitcher" class="styleSecondColor"><i class="fa fa-cog fa-spin"></i></div>
+    <!-- <div id="showSwitcher" class="styleSecondColor"><i class="fa fa-cog fa-spin"></i></div> -->
     <!-- Live Style Switcher Ends - demo only -->
     <!-- Wrapper Starts -->
     <div class="wrapper">

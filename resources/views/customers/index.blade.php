@@ -106,7 +106,7 @@ input[type=number] {
 
         </div>
     </div>
-    <div id="showSwitcher" class="styleSecondColor"><i class="fa fa-cog fa-spin"></i></div>
+    <!-- <div id="showSwitcher" class="styleSecondColor"><i class="fa fa-cog fa-spin"></i></div> -->
     <!-- Live Style Switcher Ends - demo only -->
     <!-- Wrapper Starts -->
     <div class="wrapper">
@@ -208,7 +208,7 @@ input[type=number] {
 						</span>
                         <div class="feature-box-content">
                             <h3>Finish transaction</h3>
-                            <p>Upload screenshot of transaction and your preferred payment method, then click submit</p>
+                            <p>Provide wallet address through which you sent us bitcoin and preferred payment method.</p>
                         </div>
                     </div>
                     <!-- Feature Box Ends -->
