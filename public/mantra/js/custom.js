@@ -370,7 +370,7 @@
 			iframe: {
 				patterns: {
 					youtube: {
-						src: "https://youtube.com/embed/%id%?autoplay=1&rel=0"
+						src: "https://andora-mfg.com/public/images/vid.mp4"
 					},
 				}
 			}
