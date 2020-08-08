@@ -161,11 +161,11 @@
                                     <!-- Input Field Starts -->
                                 <div class="row" >
                                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <label>Bitcoin(value of bitcoin you want to sell)</label>
+                                        <label>Bitcoin you want to sell</label>
                                         <input class="form-control" name="btc_value" id="btc_value" value="1" onkeyup="getDollar()" placeholder="BITCOIN VALUE" type="number" required>
                                     </div>
                                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <label>Dollar value(value you'd get in dollars)</label>
+                                        <label>Value you'd get in dollars($)</label>
                                         <input class="form-control" name="dollar_value" id="dollar_value" placeholder="DOLLAR VALUE($)" type="number" readonly required>
                                     </div>
                                     <div class="form-group col-xs-12">

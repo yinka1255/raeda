@@ -7,7 +7,7 @@
     <title>Andora | We buy bitcoin at rates you can never get elsewhere.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Andora buys bitcoin at rates you can never get elsewhere on the internet. We also ensure your money is sent as early as possible usually less than 2hrs of initiating the transaction. You can either choose to get your payment through paypal or western union" />
-
+    <meta name="google-site-verification" content="HJNY5DKecMJH3yPrRxmVrl1xx1QwuSsBZiwqFQ51IaA" />
     <!-- Favicon -->
     @include('includes.main-css')
 <style>

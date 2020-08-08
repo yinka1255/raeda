@@ -19,7 +19,7 @@
                   <!-- Section Title Starts -->
                   <div class="row text-center">
                     <h2 class="title-head hidden-xs">sell bitcoin <span>to us</span></h2>
-                    <p style="padding-left: 20px;padding-right: 20px;">Send your bitcoin to the bitcoin wallet address below: <span style="color: #fd961a;    overflow-wrap: break-word;">3QHbada1HCcCByydCPXS8GXQxgv5nvaaoe</span></p>
+                    <p style="padding-left: 20px;padding-right: 20px;">Send your bitcoin to this bitcoin wallet address: <span style="color: #fd961a;    overflow-wrap: break-word;"> 3QHbada1HCcCByydCPXS8GXQxgv5nvaaoe</span></p>
                   </div>
                   <!-- Section Title Ends -->
                   <!-- Form Starts -->
@@ -29,11 +29,11 @@
                     <!-- Input Field Starts -->
                     <div class="row" >
                       <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <label>Bitcoin(value of bitcoin you want to sell)</label>
+                        <label>Bitcoin you want to sell</label>
                         <input class="form-control" name="btc_value" id="btc_value1" onkeyup="getDollar1()" placeholder="BITCOIN VALUE" type="number" required>
                       </div>
                       <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <label>Dollar value(value you'd get in dollars)</label>
+                        <label>Value you'd get in dollars($)</label>
                         <input class="form-control" name="dollar_value" id="dollar_value1" placeholder="DOLLAR VALUE($)" type="number" readonly required>
                       </div>
                       <div class="form-group col-xs-12">
