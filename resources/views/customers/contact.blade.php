@@ -180,7 +180,7 @@
                                     <div class="contact-info-box-content">
                                         <h4>Email Addresses</h4>
 
-                                        <p>info@andora-mfg.com<br>contact@andora-mfg.com</p>
+                                        <p>support@andora-mfg.com</p>
                                     </div>
                                 </div>
 								<!-- Contact Info Box Ends -->

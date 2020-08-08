@@ -34,7 +34,7 @@
                     <h4>Contact Us </h4>
                     <div class="contacts">
                         <div>
-                            <span>contact@website.com</span>
+                            <span>support@andora-mfg.com</span>
                         </div>
                         <div>
                             <span>+1 888-670-4887</span>
