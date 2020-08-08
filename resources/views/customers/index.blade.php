@@ -352,7 +352,7 @@ input[type=number] {
                     <div class="col-md-4 ts-padding bg-image-1">
                         <div>
                             <div class="text-center">
-                                <a class="button-video mfp-youtube" href="https://www.youtube.com/watch?v=0gv7OC9L2s8"></a>
+                                <a class="button-video mfp-youtube" href="{{asset('public/images/vid.mp4')}}"></a>
                             </div>
                         </div>
                     </div>
@@ -370,7 +370,7 @@ input[type=number] {
                     <div class="col-md-4 img-block-quote bg-image-2">
                         <blockquote>
                             <p>Bitcoin is one of the most important inventions in all of human history. For the first time ever, anyone can send or receive any amount of money with anyone else, anywhere on the planet, conveniently and without restriction. It’s the dawn of a better, more free world.</p>
-                            <footer><img src="{{asset('public/mantra/images/ceo.jpg')}}" alt="ceo" /> <span>Marc Smith</span> - CEO</footer>
+                            <footer><img src="{{asset('public/mantra/images/ceo.jpg')}}" alt="ceo" /> <span>Marc Smith</span> </footer>
                         </blockquote>
                     </div>
                     <!-- Quote Ends -->
