@@ -140,7 +140,7 @@ input[type=number] {
                     <div class="col-md-12 text-center">
                         <form class="bitcoin-calculator" id="">
                             <!-- Input #1 Starts -->
-                            <input class="form-input" id="btc_value" onkeyup="getDollar()" min="0.1"  step="0.1" name="btc_value" value="1">
+                            <input class="form-input" id="btc_value" onkeyup="getDollar()" min="0.2" name="btc_value" value="1">
                             <!-- Input #1 Ends -->
                             <div class="form-info"><i class="fa fa-bitcoin"></i></div>
                             <div class="form-equal">=</div>

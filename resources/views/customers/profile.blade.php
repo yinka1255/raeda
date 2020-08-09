@@ -162,7 +162,7 @@
                                 <div class="row" >
                                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <label>Bitcoin you want to sell</label>
-                                        <input class="form-control" name="btc_value" id="btc_value" value="1" min="0.1"  step="0.1" onkeyup="getDollar()" placeholder="BITCOIN VALUE" type="number" required>
+                                        <input class="form-control" name="btc_value" id="btc_value" value="1" min="0.2"   onkeyup="getDollar()" placeholder="BITCOIN VALUE" type="number" required>
                                     </div>
                                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <label>Value you'd get in dollars($)</label>
