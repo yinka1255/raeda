@@ -295,7 +295,7 @@
             function getDollar(){
                 var btc = $("#btc_value").val();
                 $("#btc_value1").val(btc);
-                var dollar = btc * 17226.68;
+                var dollar = btc * 14122.12;
                 $("#dollar_value").val(dollar.toFixed(2));
                 $("#dollar_value1").val(dollar.toFixed(2));
             }
