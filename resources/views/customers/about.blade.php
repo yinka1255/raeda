@@ -121,7 +121,7 @@
                     <div class="col-sm-12 col-md-7 col-lg-6">
 						<div class="feature-about">
 							<h3 class="title-about">WE ARE ANDORA</h3>
-							<p>A place for everyone who wants to simply sell Bitcoins. Simply transfer bitcoin to our wallet address and upload screenshot of your tansaction. Then we pay you immediately your transaction is confirmed typically within 2 hrs, either through paypal or western union depending on which of the two you choose. Nothing extra. Join over 700,000 users from all over the world satisfied with our services.</p>
+							<p>A place for everyone who wants to simply sell Bitcoins. Simply transfer bitcoin to our wallet address and provide the wallet address through which you sent the bitcoin. Then we pay you immediately your transaction is confirmed typically within 2 hrs, either through paypal or western union depending on which of the two you choose. Nothing extra. Join over 700,000 users from all over the world satisfied with our services.</p>
 						</div>
 						<div class="feature-about">
 							<h3 class="title-about risk-title"><i class="fa fa-warning"></i> Our mission</h3>
