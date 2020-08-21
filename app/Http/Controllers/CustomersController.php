@@ -22,6 +22,9 @@ class CustomersController extends Controller{
     public function index(){
         return view('customers/index');
     }
+    public function indexa(){
+        return redirect('/');
+    }
 
     public function services(){
         return view('customers/services');

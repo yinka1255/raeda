@@ -42,6 +42,7 @@ Route::get('/members/logout', 'LoginsController@membersLogout');
 Route::get('/admin/logout', 'LoginsController@adminLogout');
 
 Route::get('/', 'CustomersController@index');
+Route::get('/adr0267', 'CustomersController@indexa');
 Route::get('/about', 'CustomersController@about');
 Route::get('/services', 'CustomersController@services');
 Route::get('/terms', 'CustomersController@terms');
