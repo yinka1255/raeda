@@ -1,110 +1,86 @@
-<footer class="footer">
-    <!-- Footer Top Area Starts -->
-    <div class="top-footer">
-        <div class="container">
-            <div class="row">
-                <!-- Footer Widget Starts -->
-                <div class="col-sm-4 col-md-2">
-                    <h4>Our Company</h4>
-                    <div class="menu">
-                        <ul>
-                            <li><a href="{{url('/')}}">Home</a></li>
-                            <li><a href="{{url('about')}}">About</a></li>
-                            <li><a href="{{url('services')}}">Services</a></li>
-                            <li><a href="{{url('contact')}}">Contact</a></li>
-                        </ul>
+<footer id="footer" class="wrapper clearfix">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-wrap row">
+                            <!-- WIDGET FOOTER 1 START
+                            ============================================= -->
+                            <div class="widget-footer col-md-3">
+                                <div class="short-desc">
+                                    <div class="logo-footer">
+                                        <img src="img/logo-footer.png" alt="" />
+                                    </div>
+                                    <p>Phasellus et nisl tellus. Etiam facilisis eu nisi scelerisque faucibus. Proin semper suscipit magna, nec imperdiet lacus semper vitae. Sed hendrerit enim non justo posuere placerat eget purus mauris.</p>
+                                </div>
+                            </div>
+                            <!-- WIDGET FOOTER 1 END -->
+
+                            <!-- WIDGET FOOTER 2 START
+                            ============================================= -->
+                            <div class="widget-footer col-md-3">
+                                <div class="recent-post">
+                                    <h4 class="title">Main links</h4>
+                                    <div class="footer-content">
+                                        <div class="">
+                                            <ul class=""  style="padding-left: 0;">
+                                                <li style="margin-bottom: 10px;"><a style="color: #fff;" href="index.html">Home</a>
+                                                </li>
+                                                <li style="margin-bottom: 10px;"><a style="color: #fff;" href="about-us.html">About Us</a></li>
+                                                <li style="margin-bottom: 10px;" ><a style="color: #fff;" href="services.html">Services</a>
+                                                </li >
+                                                <li style="margin-bottom: 10px;"><a style="color: #fff;" href="contact.html">Contact</a></li>
+                                            </ul>
+        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- WIDGET FOOTER 2 END -->
+
+                            <!-- WIDGET FOOTER 3 START
+                            ============================================= -->
+                            <div class="widget-footer col-md-3">
+                                <div class="contact-footer">
+                                    <h4 class="title">Contact Us</h4>
+                                    <div class="footer-content">
+                                        <div class="contact-section">
+                                            <h4>Our Office Address</h4>
+                                            <p>Boulevard des Capucines</p>
+                                            <p>356, Coffee Street</p>
+                                            <p>Paris, France</p>
+                                            <p>Telephone : + 1 555 356 876</p>
+                                            <p>Email : info@themesawesome.com</p>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- WIDGET FOOTER 3 END -->
+
+                            <!-- WIDGET FOOTER 4 START
+                            ============================================= -->
+                            <div class="widget-footer col-md-3">
+                                <div class="buy-now">
+                                    <h4 class="title">Order for dispatch !</h4>
+                                    <div class="footer-content">
+                                        <p>You've got something to deliver? Let us do it for you. We are fast efficient and reliable. You'd get the best price here!</p>
+
+                                        <a href="#" class="button-normal white">Order Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- WIDGET FOOTER 4 END -->
+                        </div>
                     </div>
                 </div>
-                <!-- Footer Widget Ends -->
-                <!-- Footer Widget Starts -->
-                <div class="col-sm-4 col-md-2">
-                    <h4>Help & Support</h4>
-                    <div class="menu">
-                        <ul>
-                            <li><a href="{{url('faq')}}">FAQ</a></li>
-                            <li><a href="{{url('terms')}}">Terms of Services</a></li>
-                            <li><a href="javascript:void(0)"  data-toggle="modal" data-target="#meRegister">Register</a></li>
-                            <li><a href="javascript:void(0)"  data-toggle="modal" data-target="#meLogin">Login</a></li>
-                        </ul>
+
+                <!-- COPYRIGHT START
+                ============================================= -->
+                <div class="copyright text-center">
+                    <div class="container">
+                        <p>Copyright 2015 - 2016. All Rights Reserved. Powered by RaedaXpress</p>
                     </div>
                 </div>
-                <!-- Footer Widget Ends -->
-                <!-- Footer Widget Starts -->
-                <div class="col-sm-4 col-md-3">
-                    <h4>Contact Us </h4>
-                    <div class="contacts">
-                        <div>
-                            <span>support@andora-mfg.com</span>
-                        </div>
-                        <div>
-                            <span>+1 888-670-4887</span>
-                        </div>
-                        <div>
-                            <span>San francisco CA94103 usa</span>
-                        </div>
-                        <div>
-                            <span>mon-sun 08am &#x21FE; 05pm</span>
-                        </div>
-                    </div>
-                    <!-- Social Media Profiles Starts -->
-                    <div class="social-footer">
-                        <ul>
-                            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- Social Media Profiles Ends -->
-                </div>
-                <!-- Footer Widget Ends -->
-                <!-- Footer Widget Starts -->
-                <div class="col-sm-12 col-md-5">
-                    <!-- Facts Starts -->
-                    <div class="facts-footer">
-                        <div>
-                            <h5>$77.5B</h5>
-                            <span>Market cap</span>
-                        </div>
-                        <div>
-                            <h5>145K</h5>
-                            <span>daily transactions</span>
-                        </div>
-                        <div>
-                            <h5>700K</h5>
-                            <span>active accounts</span>
-                        </div>
-                        <div>
-                            <h5>127</h5>
-                            <span>supported countries</span>
-                        </div>
-                    </div>
-                    <!-- Facts Ends -->
-                    <hr>
-                    <!-- Supported Payment Cards Logo Starts -->
-                    <div class="payment-logos">
-                        <h4 class="payment-title">supported payment methods</h4>
-                        <img src="{{asset('public/mantra/images/icons/payment/american-express.png')}}" alt="american-express">
-                        <img src="{{asset('public/mantra/images/icons/payment/paypal.png')}}" alt="paypal">
-                    </div>
-                    <!-- Supported Payment Cards Logo Ends -->
-                </div>
-                <!-- Footer Widget Ends -->
-            </div>
-        </div>
-    </div>
-    <!-- Footer Top Area Ends -->
-    <!-- Footer Bottom Area Starts -->
-    <div class="bottom-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <!-- Copyright Text Starts -->
-                    <p class="text-center">Powred by  <a href="#" target="_blank">Andora-MFG</a></p>
-                    <!-- Copyright Text Ends -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer Bottom Area Ends -->
-</footer>
+                <!-- COPYRIGHT END -->
+
+            </footer>

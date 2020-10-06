@@ -1,116 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="Neon Vendor Panel" />
-	<meta name="author" content="" />
-
-	<title>AirTnd | Profile</title>
-	@include('admin.includes.head')
-
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>RaedaXpress - Admin</title>
+    <meta content="Responsive admin theme build on top of Bootstrap 4" name="description" />
+    <meta content="Themesdesign" name="author" />
+    
+    @include('admin.includes.head')
 </head>
-<body class="page-body  page-fade" data-url="http://neon.dev">
 
-<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
-	@include('admin.includes.sidemenu')
-	<div class="main-content">
-		@include('admin.includes.header')
-		<hr />
-		
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="col-xs-8">
-					<ol class="breadcrumb bc-3">
-						<li>
-							<a href="{{url('admin/index')}}"><i class="fa-home"></i>Dashboard</a>
-						</li>
-						<li class="active">
-							<a href="#">Profile</a>
-						</li>
-					</ol>
-				</div>
-				<div class="col-xs-4">
-					<div class="pull-right">
-							{{--<a href="javascript:;" onclick="jQuery('#generate_pin_modal').modal('show');" class="btn btn-primary"><i class="entypo-user"> </i> Generate new pin</a>--}}
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<form method="post" action="{{url('admin/update_profile')}}" class="form-horizontal form-groups-bordered">
-							{{ csrf_field() }}
-							<div class="form-group">
-								<label for="field-2" class="col-sm-3 control-label">Name</label>
-								<div class="col-sm-9">
-									<input type="text" name="name" value="{{$loggedInUser->name}}" class="form-control" placeholder="Name">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="field-2" class="col-sm-3 control-label">Email</label>
-								<div class="col-sm-9">
-									<input type="email" name="email" value="{{$loggedInUser->email}}" class="form-control" placeholder="Email">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="field-2" class="col-sm-3 control-label">Phone</label>
-								<div class="col-sm-9">
-									<input type="text" name="phone" value="{{$loggedInUser->phone}}" class="form-control" placeholder="Phone">
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-5">
-									<button type="submit" class="btn btn-default">Update profile</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-				<hr><br/>
-				<div class="row">
-						<div class="col-md-6">
-							<form method="post" action="{{url('admin/update_password')}}" class="form-horizontal form-groups-bordered">
-								{{ csrf_field() }}
-								<div class="form-group">
-									<label for="field-2" class="col-sm-3 control-label">New Password</label>
-									<div class="col-sm-9">
-										<input type="password" name="password" class="form-control" placeholder="New password">
-									</div>
-								</div>
+<body>
 
-								<div class="form-group">
-										<label for="field-2" class="col-sm-3 control-label">Confirm Password</label>
-										<div class="col-sm-9">
-											<input type="password" name="password1" class="form-control" placeholder="Confirm password">
-										</div>
-									</div>
-								
-								<div class="form-group">
-									<div class="col-sm-offset-3 col-sm-5">
-										<button type="submit" class="btn btn-default">Update password</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-			</div>
-		</div>
-		
-		<br />
-		
-		<br />
-		
-	</div>
+    <!-- Begin page -->
+    <div id="wrapper">
 
-	
-	<!-- Imported styles on this page -->
-	<link rel="stylesheet" href="{{asset('public/admin/js/jvectormap/jquery-jvectormap-1.2.2.css')}}">
-	<link rel="stylesheet" href="{{asset('public/admin/js/rickshaw/rickshaw.min.css')}}">
-	<link rel="stylesheet" href="{{asset('public/admin/js/datatables/datatables.css')}}">
-	<script src="{{asset('public/admin/js/datatables/datatables.js')}}"></script>
-	@include('admin.includes.script')
-	
+        
+        <!-- Top Bar End -->
+        @include('admin.includes.sidemenu')
+        
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="page-title-box">
+                        <div class="row align-items-center">
+                            <div class="col-sm-6">
+                                <h4 class="page-title">Profile</h4>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-right">
+                                    <li class="breadcrumb-item"><a href="{{url('admin/index')}}">Dashboard</a></li>
+                                    <li class="breadcrumb-item active">Profile</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- end page-title -->
+                    
+
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card m-b-30">
+                                <div class="card-body">
+                                    <form class="form-horizontal m-t-30"  method="POST" action="{{url('admin/update_profile')}}">
+                                        {{ csrf_field() }}
+                                        <div class="form-group">
+                                            <div class="col-12">
+                                                    <label>First name</label>
+                                                <input class="form-control" value="{{Auth::user()->first_name}}" name="first_name" required placeholder="John">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-12">
+                                                    <label>Last name</label>
+                                                <input class="form-control" value="{{Auth::user()->last_name}}" name="last_name" required placeholder="Doe">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-12">
+                                                    <label>Phone</label>
+                                                <input class="form-control" value="{{Auth::user()->phone1}}" name="phone" required placeholder="08012345678">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-12">
+                                                    <label>Email</label>
+                                                <input class="form-control"value="{{Auth::user()->email}}" name="email" type="email" required placeholder="john.doe@mail.com">
+                                            </div>
+                                        </div>
+                
+                                        <div class="form-group text-center m-t-20">
+                                            <div class="col-12">
+                                                <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Update profile</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card m-b-30">
+                                <div class="card-body">
+                                    <form class="form-horizontal m-t-30"  method="POST" action="{{url('customers/update_password')}}">
+                                        {{ csrf_field() }}
+                                        <div class="form-group">
+                                            <div class="col-12">
+                                                    <label>Password</label>
+                                                <input class="form-control" name="password" type="password" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-12">
+                                                    <label>Confirm Password</label>
+                                                <input class="form-control" name="cpassword" type="password" placeholder="Password">
+                                            </div>
+                                        </div>
+                
+                                        <div class="form-group text-center m-t-20">
+                                            <div class="col-12">
+                                                <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Update profile</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END ROW -->
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- content -->
+            <footer class="footer">
+                © 2019 - 2020 RaedarXpress <span class="d-none d-sm-inline-block"><a href="https://imperial.com.ng"> Developed by Imperial soft services</a></span>.
+            </footer>
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Right content here -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    <!-- jQuery  -->
+    @include('admin.includes.script')
+
 </body>
+
 </html>

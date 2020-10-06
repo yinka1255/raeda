@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     use Notifiable;
+	
 	//public $timestamps = false;
+
+	
 }
 ?>

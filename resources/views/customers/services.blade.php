@@ -1,201 +1,479 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en-US"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en-US"> <![endif]-->
+<!--[if gte IE 8]><html class="ie ie8" lang="en-US"> <![endif]-->
 
+<html dir="ltr" lang="en-US">
 
-<head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta charset="utf-8" />
-    <title>Andora | Our services</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Google Fonts
+        ============================================= -->
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-    @include('includes.main-css')
+        <!-- Stylesheets
+        ============================================= -->
+        @include('includes.main-css')
 
-</head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<body>
-    <!-- SVG Preloader Starts -->
-    <div id="preloader">
-        <div id="preloader-content">
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="100 100 400 400" xml:space="preserve">
-                <filter id="dropshadow" height="130%">
-                <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
-                <feOffset dx="0" dy="0" result="offsetblur"/>
-                <feFlood flood-color="red"/>
-                <feComposite in2="offsetblur" operator="in"/>
-                <feMerge>
-                <feMergeNode/>
-                <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-                </filter>          
-                <path class="path" fill="#000000" d="M446.089,261.45c6.135-41.001-25.084-63.033-67.769-77.735l13.844-55.532l-33.801-8.424l-13.48,54.068
-                    c-8.896-2.217-18.015-4.304-27.091-6.371l13.568-54.429l-33.776-8.424l-13.861,55.521c-7.354-1.676-14.575-3.328-21.587-5.073
-                    l0.034-0.171l-46.617-11.64l-8.993,36.102c0,0,25.08,5.746,24.549,6.105c13.689,3.42,16.159,12.478,15.75,19.658L208.93,357.23
-                    c-1.675,4.158-5.925,10.401-15.494,8.031c0.338,0.485-24.579-6.134-24.579-6.134l-9.631,40.468l36.843,9.188
-                    c8.178,2.051,16.209,4.19,24.098,6.217l-13.978,56.17l33.764,8.424l13.852-55.571c9.235,2.499,18.186,4.813,26.948,6.995
-                    l-13.802,55.309l33.801,8.424l13.994-56.061c57.648,10.902,100.998,6.502,119.237-45.627c14.705-41.979-0.731-66.193-31.06-81.984
-                    C425.008,305.984,441.655,291.455,446.089,261.45z M368.859,369.754c-10.455,41.983-81.128,19.285-104.052,13.589l18.562-74.404
-                    C306.28,314.65,379.774,325.975,368.859,369.754z M379.302,260.846c-9.527,38.187-68.358,18.781-87.442,14.023l16.828-67.489
-                    C327.767,212.14,389.234,221.02,379.302,260.846z"/>       
-            </svg>
+        <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <title>RaedaXpress | Best Logistics Company In Nigeria</title>
+    </head>
+
+    <body onload="hideTotal()">
+        <div id="preloader">
+            <div id="status">
+                <img src="{{asset('public/main/img/logo.png')}}" alt="" />
+            </div>
         </div>
-    </div>
-    <!-- SVG Preloader Ends -->
-	<!-- Live Style Switcher Starts - demo only -->
-    <div id="switcher" class="">
-        <div class="content-switcher">
-            <h4>STYLE SWITCHER</h4>
-            <ul>
-                <li>
-                    <a id="orange-css" href="#" title="orange" class="color"><img src="{{asset('public/mantra/images/styleswitcher/colors/orange.png')}}" alt="" width="30" height="30" /></a>
-                </li>
-                <li>
-                    <a id="green-css" href="#" title="green" class="color"><img src="{{asset('public/mantra/images/styleswitcher/colors/green.png')}}" alt="" width="30" height="30" /></a>
-                </li>
-                <li>
-                    <a id="blue-css" href="#" title="blue" class="color"><img src="{{asset('public/mantra/images/styleswitcher/colors/blue.png')}}" alt="" width="30" height="30" /></a>
-                </li>
-            </ul>
 
-            <p>BODY SKIN</p>
-			
-			<label><input class="dark_switch" type="radio" name="color_style" id="is_dark" value="dark" checked="checked" /> Dark</label>
-            <label><input class="dark_switch" type="radio" name="color_style" id="is_light" value="light" /> Light</label>
+        <!-- MAIN WRAPPER
+        ============================================= -->
+        <div id="main-wrapper" class="clearfix">
 
-            <hr />
+            <!-- HEADER
+            ============================================= -->
+            @include('includes.main-header')
+            <!-- HEADER END -->
 
-            <p>LAYOUT STYLE</p>
-            <label><input class="boxed_switch" type="radio" name="layout_style" id="is_wide" value="wide" checked="checked" /> Wide</label>
-            <label><input class="boxed_switch" type="radio" name="layout_style" id="is_boxed" value="boxed" /> Boxed</label>
+            <!-- SLIDER START
+            ============================================= -->
+            <section class="page-title wrapper clearfix" style="background-image: url({{asset('public/main/img/about-page-bg.jpg')}});">
+                <div class="container">
+                    <div class="row">
+                        <div class="title-wrap wow fadeIn" data-wow-delay="1s">
+                            <h1>Our services</h1>
+                            <div class="breadcrumbs">
+                                <p>You Are Here : 
+                                <span><a href="{{url('/')}}">Home</a></span>
+                                <span class="arrow"><i class="icon icon-arrow-right"></i></span>
+                                <span>Services</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- SLIDER END -->
 
-            <hr />
+            <!-- CONTENT START
+            ============================================= -->
+            <section id="content" class="clearfix">
 
-            <a href="#" class="custom-button purchase">Purchase</a>
-            <div id="hideSwitcher">&times;</div>
+                <!-- SERVICES START
+                ============================================= -->
+                <div class="services-page wrapper bg-color">
+                    <div class="container">
+                        <div class="row">
+                            <div class="services-wrap row">
+                                <div class="item col-md-4 wow fadeInUp" data-wow-delay="0.9s">
+                                    <div class="services-content">
+                                        <div class="services-thumb">
+                                            <a href="#">
+                                                <img style="height: 231px;" src="{{asset('public/main/img/content/services-item-1.webp')}}" alt="" />
+                                                <div class="overlay"></div>
+                                            </a>
+                                        </div>
+                                        <div class="services-text">
+                                            <h3 class="title">Bus Network</h3>
+                                            <p>As a leader in Nationwide dispatch service, RaedaXpress excels in providing tailored transportation</p>
+                                            <a href="#" class="button-normal with-icon">
+                                                Read More
+                                                <i class="icon icon-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                                    <div class="services-content">
+                                        <div class="services-thumb">
+                                            <a href="#">
+                                                <img style="height: 231px;width: 100%" src="{{asset('public/main/img/content/service-item-2.jpg')}}" alt="" />
+                                                <div class="overlay"></div>
+                                            </a>
+                                        </div>
+                                        <div class="services-text">
+                                            <h3 class="title">Bike Network</h3>
+                                            <p>As a leader in Nationwide dispatch service, RaedaXpress excels in providing tailored transportation</p>
+                                            <a href="#" class="button-normal with-icon">
+                                                Read More
+                                                <i class="icon icon-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item col-md-4 wow fadeInUp" data-wow-delay="0.6s">
+                                    <div class="services-content">
+                                        <div class="services-thumb">
+                                            <a href="#">
+                                                <img style="height: 231px;" src="{{asset('public/main/img/content/services-item-3.jpg')}}" alt="" />
+                                                <div class="overlay"></div>
+                                            </a>
+                                        </div>
+                                        <div class="services-text">
+                                            <h3 class="title">Car Network</h3>
+                                            <p>As a leader in Nationwide dispatch service, RaedaXpress excels in providing tailored transportation</p>
+                                            <a href="#" class="button-normal with-icon">
+                                                Read More
+                                                <i class="icon icon-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- SERVICES END -->
+
+
+                <!-- FEATURES START
+                ============================================= -->
+                <div class="features wrapper" >
+                    <div class="container">
+                        <div class="row">
+                            <div class="section-title text-center wow fadeIn">
+                                <h2>Why Choose Us</h2>
+                            </div>
+                            
+                            <div class="features-wrap row">
+                                <div class="col-md-4">
+                                    <div class="features-item wow fadeInUp" data-wow-delay="0.5s">
+                                        <div class="icon-wrap">
+                                            <i class="icon icon-delivery"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Ground Shipping</h4>
+                                            <p>We provide excellent pickup and delivery service nationwide at the cheapes rate.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="features-item wow fadeInUp" data-wow-delay="0.8s">
+                                        <div class="icon-wrap">
+                                            <i class="fa fa-lock"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Security</h4>
+                                            <p>Your items are secured with us and we put topmost priority on security.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="features-item wow fadeInUp" data-wow-delay="1.2s">
+                                        <div class="icon-wrap">
+                                            <i class="fa fa-support"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Customer happyness</h4>
+                                            <p>Our customer care personell are always ready to assist you with all information.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FEATURES END -->
+
+                <!-- SERVICES CALCULATOR START
+                ============================================= 
+                <div class="services-calculator bg-color">
+                    <div class="container">
+                        <div class="row">
+                            <div class="services-calculator-wrap row">
+                                <div class="intro-section col-md-6">
+                                    <h3 class="title">Services Calculator</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                    <div class="image">
+                                        <img src="{{asset('public/main/img/content/service-calculator-img.png')}}" alt="" />
+                                    </div>
+                                </div>
+
+                                <div class="form-section col-md-6">
+                                    <form id="calculationform" onsubmit="return false;">
+                                        <p class="intro">* Please fill all inquiry to get your total price</p>
+                                        <fieldset>
+                                            <label>Services</label>
+                                            <select id="services_type" name='services_type' onchange="calculateTotal()">
+                                                <option value="None">Select Services</option>
+                                                <option value="Overland">Overland Network</option>
+                                                <option value="Ocean">Ocean Network</option>
+                                                <option value="Air">Air Freight</option>
+                                                <option value="Cargo">Cargo</option>
+                                                <option value="Storage">Storage</option>
+                                                <option value="Warehousing">Warehousing</option>
+                                            </select>
+
+                                            <label>Type of Goods</label>
+                                            <select id="goods_type" name='goods_type' onchange="calculateTotal()">
+                                                <option value="None">Type of Goods</option>
+                                                <option value="General">General Merchandise</option>
+                                                <option value="Fragile">Fragile Goods</option>
+                                                <option value="Fine">Fine Arts</option>
+                                                <option value="Hazardous">Hazardous Goods</option>
+                                            </select>
+
+                                            <p class="extra-services">
+                                                <label>Extra Services</label>
+                                                <span>
+                                                    <label for='expressdelivery'>Express Delivery</label>
+                                                    <input type="checkbox" id="expressdelivery" name='expressdelivery' onclick="calculateTotal()" />
+                                                </span>
+                                                <span>
+                                                    <label for='insurance'>Add Insurance</label>
+                                                    <input type="checkbox" id="insurance" name='insurance' onclick="calculateTotal()" />
+                                                </span>
+                                                <span>
+                                                    <label for='packaging'>Packaging</label>
+                                                    <input type="checkbox" id="packaging" name='packaging' onclick="calculateTotal()" />
+                                                </span>
+                                            </p>
+
+                                            <p class="fragile clearfix">
+                                                <label>Fragile</label>
+                                                <span>
+                                                    <label for='fragileyes'>Yes</label>
+                                                    <input type="checkbox" id="fragileyes" name='fragileyes' onclick="calculateTotal()" />
+                                                </span>
+                                            </p>
+                                            
+                                            <div id="totalPrice">
+                                                Total Price = $
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 SERVICE CALCULATOR END -->
+
+                <!-- TESTIMONIAL START
+                ============================================= -->
+                <div class="testimonial wrapper with-bg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="section-title text-center wow fadeIn">
+                                <h2>Testimonials</h2>
+                            </div>
+                            
+                            <div class="owl-carousel wow fadeIn" data-wow-delay="0.5s">
+                                <div class="testimonial-item">
+                                    <p>We use RaedaXpress every day for our deliveries and they have never dissapointed us. We are so confident to refer you to them.</p>
+
+                                    <div class="client-info">
+                                        <img src="{{asset('public/main/img/content/user.png')}}" style="width: 70px;" alt="" />
+                                        <div class="client-details">
+                                            <h3>John Benson</h3>
+                                            <p>CEO of Candy's Heaven</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="testimonial-item">
+                                    <p>As far as pickup and delivery service is concerened, RaedaXpress is the very best n Nigeria as we speak. Thier services is second to none in the industry.</p>
+
+                                    <div class="client-info">
+                                        <img src="{{asset('public/main/img/content/user.png')}}" style="width: 70px;" alt="" />
+                                        <div class="client-details">
+                                            <h3>Carol Linda</h3>
+                                            <p>Branch Manager of KLM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- TESTIMONIAL END -->
+
+                <!-- LATEST NEWS START
+                ============================================= 
+                <div class="latest-post wrapper bg-color">
+                    <div class="container">
+                        <div class="row">
+                            <div class="section-title text-center wow fadeIn">
+                                <h2>Latest News</h2>
+                            </div>
+
+                            <div class="post-wrap wow fadeIn" data-wow-delay="0.5s">
+                                <div class="post-item">
+                                    <div class="post-thumb">
+                                        <a href="single-post.html">
+                                            <img src="{{asset('public/main/img/content/latest-post-thumb-1.jpg')}}" alt="" />
+                                            <div class="overlay"></div>
+                                        </a>
+                                    </div>
+
+                                    <div class="post-content">
+                                        <div class="date">
+                                            <span>20</span>
+                                            <span>May</span>
+                                        </div>
+                                        <div class="content-wrap">
+                                            <h4>Transformtive Donation For Main Philanthropy</h4>
+                                            <div class="meta">
+                                                <span class="author"><i class="fa fa-user"></i> mochreza</span>
+                                                <span class="views"><i class="fa fa-eye"></i> 95 Views</span>
+                                                <span class="comments last"><i class="fa fa-comment"></i> 2 Comments</span>
+                                            </div>
+                                            <p class="excerpt">Etiamt vehicula elit.Vivauedaus rutrum mi ut aliquam In hac habitasse platore dictum will Integer sagittis neque in porta semes.</p>
+                                            <a href="single-post.html" class="button-normal with-icon">
+                                                Read More
+                                                <i class="icon icon-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="post-item">
+                                    <div class="post-thumb">
+                                        <a href="single-post.html">
+                                            <img src="{{asset('public/main/img/content/latest-post-thumb-2.jpg')}}" alt="" />
+                                            <div class="overlay"></div>
+                                        </a>
+                                    </div>
+
+                                    <div class="post-content">
+                                        <div class="date">
+                                            <span>26</span>
+                                            <span>May</span>
+                                        </div>
+                                        <div class="content-wrap">
+                                            <h4>Corporate Meeting Turns Into a Photo Shooting</h4>
+                                            <div class="meta">
+                                                <span class="author"><i class="fa fa-user"></i> mochreza</span>
+                                                <span class="views"><i class="fa fa-eye"></i> 95 Views</span>
+                                                <span class="comments last"><i class="fa fa-comment"></i> 2 Comments</span>
+                                            </div>
+                                            <p class="excerpt">Etiamt vehicula elit.Vivauedaus rutrum mi ut aliquam In hac habitasse platore dictum will Integer sagittis neque in porta semes.</p>
+                                            <a href="single-post.html" class="button-normal with-icon">
+                                                Read More
+                                                <i class="icon icon-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="post-item">
+                                    <div class="post-thumb">
+                                        <a href="single-post.html">
+                                            <img src="{{asset('public/main/img/content/latest-post-thumb-3.jpg')}}" alt="" />
+                                            <div class="overlay"></div>
+                                        </a>
+                                    </div>
+
+                                    <div class="post-content">
+                                        <div class="date">
+                                            <span>30</span>
+                                            <span>May</span>
+                                        </div>
+                                        <div class="content-wrap">
+                                            <h4>Statistics and Analysis The Key To Success</h4>
+                                            <div class="meta">
+                                                <span class="author"><i class="fa fa-user"></i> mochreza</span>
+                                                <span class="views"><i class="fa fa-eye"></i> 95 Views</span>
+                                                <span class="comments last"><i class="fa fa-comment"></i> 2 Comments</span>
+                                            </div>
+                                            <p class="excerpt">Etiamt vehicula elit.Vivauedaus rutrum mi ut aliquam In hac habitasse platore dictum will Integer sagittis neque in porta semes.</p>
+                                            <a href="single-post.html" class="button-normal with-icon">
+                                                Read More
+                                                <i class="icon icon-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 LATEST NEWS END -->
+
+                <!-- COUNTER NUMBER START
+                ============================================= -->
+                <div class="counter-section wrapper">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="counter-wrap row">
+                                <div class="counter-item col-md-15 wow fadeInUp" data-wow-delay="0.2s">
+                                    <h2 class="counter">1,273</h2>
+                                    <div class="counter-details">
+                                        <p class="heading">Delivered Packages</p>
+                                        <p>The core values are the guiding principles that dictate behavior and action.</p>
+                                    </div>
+                                </div>
+
+                                <div class="counter-item col-md-15 wow fadeInUp" data-wow-delay="0.4s">
+                                    <h2 class="counter">473,754</h2>
+                                    <div class="counter-details">
+                                        <p class="heading">KM Per Year</p>
+                                        <p>The core values are the guiding principles that dictate behavior and action.</p>
+                                    </div>
+                                </div>
+
+                                <div class="counter-item col-md-15 wow fadeInUp" data-wow-delay="0.6s">
+                                    <h2 class="counter">25</h2>
+                                    <div class="counter-details">
+                                        <p class="heading">Years of Experience</p>
+                                        <p>The core values are the guiding principles that dictate behavior and action.</p>
+                                    </div>
+                                </div>
+
+                                <div class="counter-item col-md-15 wow fadeInUp" data-wow-delay="0.8s">
+                                    <h2 class="counter">719</h2>
+                                    <div class="counter-details">
+                                        <p class="heading">Happy Clients</p>
+                                        <p>The core values are the guiding principles that dictate behavior and action.</p>
+                                    </div>
+                                </div>
+
+                                <div class="counter-item col-md-15 wow fadeInUp" data-wow-delay="1s">
+                                    <h2 class="counter">4,234</h2>
+                                    <div class="counter-details">
+                                        <p class="heading">Tons of Goods</p>
+                                        <p>The core values are the guiding principles that dictate behavior and action.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- COUNTER NUMBER END -->
+
+            </section>
+            <!-- CONTENT END -->
+            
+            <!-- FOOTER START
+            ============================================= -->
+            @include('includes.footer')
+            <!-- FOOTER END -->
 
         </div>
-    </div>
-    <!-- <div id="showSwitcher" class="styleSecondColor"><i class="fa fa-cog fa-spin"></i></div> -->
-    <!-- Live Style Switcher Ends - demo only -->
-    <!-- Wrapper Starts -->
-    <div class="wrapper">
-        <!-- Header Starts -->
-        @include('includes.main-header')
-        <!-- Header Ends -->
-		<!-- Banner Area Starts -->
-		<section class="banner-area">
-			<div class="banner-overlay">
-				<div class="banner-text text-center">
-					<div class="container">
-						<!-- Section Title Starts -->
-						<div class="row text-center">
-							<div class="col-xs-12">
-								<!-- Title Starts -->
-								<h2 class="title-head">our <span>services</span></h2>
-								<!-- Title Ends -->
-								<hr>
-								<!-- Breadcrumb Starts -->
-								<ul class="breadcrumb">
-									<li><a href="{{url('/')}}"> home</a></li>
-									<li>services</li>
-								</ul>
-								<!-- Breadcrumb Ends -->
-							</div>
-						</div>
-						<!-- Section Title Ends -->
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Banner Area Ends -->
-		<!-- Section Services Starts -->
-        <section class="services">
-			<div class="container">
-				<div class="row">
-					<!-- Service Box Starts -->
-					
-					<!-- Service Box Ends -->
-					<!-- Service Box Starts -->
-					<div class="col-md-6 service-box">
-						<div>
-							<img id="add-bitcoins" src="{{asset('public/mantra/images/icons/orange/add-bitcoins.png')}}" alt="add bitcoins">
-							<div class="service-box-content">
-								<h3>Bitcoin Mining</h3>
-								<p>Andora provides CPU-mining technologies. Our CPU start processing hashes and mining of cryptocurrency. These coins are exchanged to bitcoins on a daily basis.</p>
-							</div>
-						</div>
-					</div>
-					<!-- Service Box Ends -->
-					<!-- Service Box Starts -->
-					
-					<!-- Service Box Ends -->
-					<!-- Service Box Starts -->
-					
-					<!-- Service Box Ends -->
-					<!-- Service Box Starts -->
-					<div class="col-md-6 service-box">
-						<div>
-							<img id="world-coverage" src="{{asset('public/mantra/images/icons/orange/world-coverage.png')}}" alt="world coverage"/>
-							<div class="service-box-content">
-								<h3>Bitcoin Exchange</h3>
-								<p>Andora provides the best rate you can ever get on the internet. We also ensure your money is sent as early as possible usually less than 2hrs of initiating the transaction.</p>
-							</div>
-						</div>
-					</div>
-					<!-- Service Box Ends -->
-					<!-- Service Box Starts -->
-					<div class="col-md-6 service-box">
-						<div>
-							<img id="payment-options" src="{{asset('public/mantra/images/icons/orange/payment-options.png')}}" alt="payment options"/>
-							<div class="service-box-content">
-								<h3>Bitcoin Investment</h3>
-								<p>We are also forcasters of bitcoin and we buy in large quantities when we have forcasted upward surge in the price of bitcoin, and we sell when there is an increase in the price. </p>
-							</div>
-						</div>
-					</div>
-					<!-- Service Box Ends -->
-					
-				</div>
-			</div>
-		</section>
-		<!-- Section Services Ends -->
-        <!-- Call To Action Section Starts -->
-        <section class="call-action-all">
-			<div class="call-action-all-overlay">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-12">
-							<!-- Call To Action Text Starts -->
-							<div class="action-text">
-								<h2>Get Started Today With Bitcoin</h2>
-								<p class="lead">Open account for free and start trading Bitcoins!</p>
-							</div>
-							<!-- Call To Action Text Ends -->
-							<!-- Call To Action Button Starts -->
-							<p class="action-btn"><a class="btn btn-primary" href="javascript:void(0)"  data-toggle="modal" data-target="#meRegister">Register Now</a></p>
-							<!-- Call To Action Button Ends -->
-						</div>
-					</div>
-				</div>
-			</div>
-        </section>
-        <!-- Call To Action Section Ends -->
-        <!-- Footer Starts -->
-        
-        <!-- Footer Ends -->
-	
-        <!-- Template JS Files -->
-        @include('includes.footer')
-        @include('includes.login')
-        @include('includes.register')
-        <a href="#" id="back-to-top" class="back-to-top fa fa-arrow-up"></a>
-		<!-- Back To Top Ends  -->
-		
-       
+        <!-- MAIN WRAPPER END -->
 
-    </div>
-    <!-- Wrapper Ends -->
-    @include('includes.main-scripts')
-    <!-- Wrapper Ends -->
-</body>
-
+        <!-- Footer Scripts
+        ============================================= -->
+        <!-- External -->
+        @include('includes.main-scripts')
+    </body>
 </html>

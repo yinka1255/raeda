@@ -1,11 +1,6 @@
-<script src="{{asset('public/mantra/js/jquery-2.2.4.min.js')}}"></script>
-<script src="{{asset('public/mantra/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('public/mantra/js/select2.min.js')}}"></script>
-<script src="{{asset('public/mantra/js/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{asset('public/mantra/js/custom.js')}}"></script>
-
-<!-- Live Style Switcher JS File - only demo -->
-<script src="{{asset('public/mantra/js/styleswitcher.js')}}"></script>
+<script type="text/javascript" src="{{asset('public/main/js/plugin.js')}}"></script>
+<script type="text/javascript" src="{{asset('public/main/js/main.js')}}"></script>
+<script type="text/javascript" src="{{asset('public/main/js/formcalculations.js')}}"></script>
 <script src="{{asset('public/admin/sweetalert/docs/assets/sweetalert/sweetalert.min.js')}}"></script>
     
 @if(Session::has('success'))

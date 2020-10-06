@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Session;
 use App\Customer;
+use App\Merchant;
 use App\Member;
 use App\Visitor;
 use Illuminate\Support\Facades\Redirect;
@@ -28,16 +29,16 @@ class LoginsController extends Controller
         $password = $request->input('password');
     	if (Auth::attempt(['email' => $email, 'password' => $password])){
             $user = Auth::user();
-            if($user->status == 2){
+            if($user->status == "Inactive"){
                 Session::flash('error', 'Sorry! Your account has been deactivated');
                 return back();
             }  
-            if($user->type == 2){
+            if($user->role == "customer"){
                 Session::flash('success', 'Authentication was successfull');
-                return redirect('customers/profile');
+                return redirect('customers/dashboard');
                 
             }    
-                if($user->type == 1){
+                if($user->role == "admin"){
                 Session::flash('success', 'Authentication was successfull');
                 return redirect('admin/index');
             }   
@@ -56,31 +57,27 @@ class LoginsController extends Controller
         $password = $request->input('password');
     	if (Auth::attempt(['email' => $email, 'password' => $password])){
             $user = Auth::user();
-            $customer = Customer::where("user_id", $user->id)->first();
-            if($user->status == 2){
+            if($user->status == "Inactive"){
                 return response()->json(['error'=> 'Sorry! Your account has been deactivated']);
             }  
-            if($user->type == 2){
-                return response()->json(['success'=> 'Authentication was successfull', "customer"=>$customer]);
+            if($user->role == "customer"){
+                return response()->json(['success'=> 'Authentication was successfull', "customer"=>$user]);
                 
-            }    
-                if($user->type == 1){
-                    return response()->json(['error'=> 'Sorry! You cannot login with an admin account']);
+            } else{
+                    return response()->json(['error'=> 'Sorry! You can only login to this app with a customer account']);
             }   
            
         }
-        else if (Auth::attempt(['phone' => $email, 'password' => $password])){
+        else if (Auth::attempt(['phone1' => $email, 'password' => $password])){
             $user = Auth::user();
-            $customer = Customer::where("user_id", $user->id)->first();
-            if($user->status == 2){
+            if($user->status == "Inactive"){
                 return response()->json(['error'=> 'Sorry! Your account has been deactivated']);
             }  
-            if($user->type == 2){
+            if($user->role == "Customer"){
                 return response()->json(['success'=> 'Authentication was successfull', "customer"=>$customer]);
                 
-            }    
-                if($user->type == 1){
-                    return response()->json(['error'=> 'Sorry! You cannot login with an admin account']);
+            } else{
+                    return response()->json(['error'=> 'Sorry! You can only login to this app with a customer account']);
             }   
         }
         else{		
@@ -88,12 +85,55 @@ class LoginsController extends Controller
         }
 
     }
+    public function mobileRetailerAuthenticate(Request $request){
+    	$email = $request->input('email');
+        $password = $request->input('password');
+    	if (Auth::attempt(['email' => $email, 'password' => $password])){
+            $user = Auth::user();
+            if($user->status == "Inactive"){
+                return response()->json(['error'=> 'Sorry! Your account has been deactivated']);
+            }  
+            if($user->role == "merchant"){
+                $merchant = Merchant::join("users", "users.merchant_id", "merchants.id")
+                ->join("cities", "cities.id", "merchants.city_id")
+                ->join("states", "states.id", "merchants.state_id")
+                ->select("users.*", "merchants.*", "states.name as state_name", "states.id as state_id", "cities.name as city_name", "cities.id as city_id",  "users.id as id")
+                ->where("users.id", $user->id)
+                ->first();
+                return response()->json(['success'=> 'Authentication was successfull', "user"=>$merchant]);
+                
+            } else{
+                    return response()->json(['error'=> 'Sorry! You can only login to this app with a merchant account']);
+            }   
+           
+        }
+        else if (Auth::attempt(['phone1' => $email, 'password' => $password])){
+            $user = Auth::user();
+            if($user->status == "Inactive"){
+                return response()->json(['error'=> 'Sorry! Your account has been deactivated']);
+            }  
+            if($user->role == "merchant"){
+                $merchant = Merchant::join("users", "users.merchant_id", "merchants.id")
+                ->join("cities", "cities.id", "merchants.city_id")
+                ->join("states", "states.id", "merchants.state_id")
+                ->select("users.*", "merchants.*", "states.name as state_name", "states.id as state_id", "cities.name as city_name", "cities.id as city_id",  "users.id as id")
+                ->where("users.id", $user->id)
+                ->first();
+                return response()->json(['success'=> 'Authentication was successfull', "user"=>$merchant]);
+                
+            } else{
+                    return response()->json(['error'=> 'Sorry! You can only login to this app with a merchant account']);
+            }   
+        }
+        else{		
+            return response()->json(['error'=> 'Authentication failed. Kindly try again with valid details']);
+        }
+    }
 
 
     public function logout(){
-        
         Auth::logout();
-        return redirect('/');
+        return redirect('/login');
     }
 
 }

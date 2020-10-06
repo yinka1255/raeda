@@ -1,554 +1,478 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en-US"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en-US"> <![endif]-->
+<!--[if gte IE 8]><html class="ie ie8" lang="en-US"> <![endif]-->
 
-<head>
+<html dir="ltr" lang="en-US">
 
-    <meta charset="utf-8" />
-    <title>Andora | We buy bitcoin at rates you can never get elsewhere.</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Andora buys bitcoin at rates you can never get elsewhere on the internet. We also ensure your money is sent as early as possible usually less than 2hrs of initiating the transaction. You can either choose to get your payment through paypal or western union" />
-    <meta name="google-site-verification" content="HJNY5DKecMJH3yPrRxmVrl1xx1QwuSsBZiwqFQ51IaA" />
-    <meta name="facebook-domain-verification" content="5ersq8eoeov7f80ek3fiu20gs7rp2r" />
-    <!-- Favicon -->
-    @include('includes.main-css')
-<style>
-  @media only screen and (max-width: 600px) {
-    .carousel-inner{
-      min-height: 460px;
-    }
-  }
-    #dollar_value1{
-    box-shadow: none !important;
-    border: 1px solid #333 !important;
-    padding: 0px 0px 4px 20px !important;
-    height: 46px !important;
-    color: #fff !important;
-    background: #222 !important;
-    font-size: 14px !important;
-    border-radius: 0 !important;
-    outline: 0 !important;
-    transition: .1s !important;
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    }
-    /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+        <!-- Google Fonts
+        ============================================= -->
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
+        <!-- Stylesheets
+        ============================================= -->
+        @include('includes.main-css')
 
-</style>
-</head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<body>
-    <!-- SVG Preloader Starts -->
-    <div id="preloader">
-        <div id="preloader-content">
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewBox="100 100 400 400" xml:space="preserve">
-                <filter id="dropshadow" height="130%">
-                <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
-                <feOffset dx="0" dy="0" result="offsetblur"/>
-                <feFlood flood-color="red"/>
-                <feComposite in2="offsetblur" operator="in"/>
-                <feMerge>
-                <feMergeNode/>
-                <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-                </filter>          
-                <path class="path" fill="#000000" d="M446.089,261.45c6.135-41.001-25.084-63.033-67.769-77.735l13.844-55.532l-33.801-8.424l-13.48,54.068
-                    c-8.896-2.217-18.015-4.304-27.091-6.371l13.568-54.429l-33.776-8.424l-13.861,55.521c-7.354-1.676-14.575-3.328-21.587-5.073
-                    l0.034-0.171l-46.617-11.64l-8.993,36.102c0,0,25.08,5.746,24.549,6.105c13.689,3.42,16.159,12.478,15.75,19.658L208.93,357.23
-                    c-1.675,4.158-5.925,10.401-15.494,8.031c0.338,0.485-24.579-6.134-24.579-6.134l-9.631,40.468l36.843,9.188
-                    c8.178,2.051,16.209,4.19,24.098,6.217l-13.978,56.17l33.764,8.424l13.852-55.571c9.235,2.499,18.186,4.813,26.948,6.995
-                    l-13.802,55.309l33.801,8.424l13.994-56.061c57.648,10.902,100.998,6.502,119.237-45.627c14.705-41.979-0.731-66.193-31.06-81.984
-                    C425.008,305.984,441.655,291.455,446.089,261.45z M368.859,369.754c-10.455,41.983-81.128,19.285-104.052,13.589l18.562-74.404
-                    C306.28,314.65,379.774,325.975,368.859,369.754z M379.302,260.846c-9.527,38.187-68.358,18.781-87.442,14.023l16.828-67.489
-                    C327.767,212.14,389.234,221.02,379.302,260.846z"/>       
-            </svg>
+        <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <title>RaedaXpress | Best Logistics Company In Nigeria</title>
+    </head>
+
+    <body onload="hideTotal()">
+        <div id="preloader">
+            <div id="status">
+                <img src="{{asset('public/main/img/logo.png')}}" alt="" />
+            </div>
         </div>
-    </div>
-    <!-- SVG Preloader Ends -->
-	<!-- Live Style Switcher Starts - demo only -->
-    <div id="switcher" class="">
-        <div class="content-switcher">
-            <h4>STYLE SWITCHER</h4>
-            <ul>
-                <li>
-                    <a id="orange-css" href="#" title="orange" class="color"><img src="{{asset('public/mantra/images/styleswitcher/colors/orange.png')}}" alt="" width="30" height="30" /></a>
-                </li>
-                <li>
-                    <a id="green-css" href="#" title="green" class="color"><img src="{{asset('public/mantra/images/styleswitcher/colors/green.png')}}" alt="" width="30" height="30" /></a>
-                </li>
-                <li>
-                    <a id="blue-css" href="#" title="blue" class="color"><img src="{{asset('public/mantra/images/styleswitcher/colors/blue.png')}}" alt="" width="30" height="30" /></a>
-                </li>
-            </ul>
 
-            <p>BODY SKIN</p>
-			
-			<label><input class="dark_switch" type="radio" name="color_style" id="is_dark" value="dark" checked="checked" /> Dark</label>
-            <label><input class="dark_switch" type="radio" name="color_style" id="is_light" value="light" /> Light</label>
+        <!-- MAIN WRAPPER
+        ============================================= -->
+        <div id="main-wrapper" class="clearfix">
 
-            <hr />
+            <!-- HEADER
+            ============================================= -->
+            @include('includes.main-header')
+            <!-- HEADER END -->
 
-            <p>LAYOUT STYLE</p>
-            <label><input class="boxed_switch" type="radio" name="layout_style" id="is_wide" value="wide" checked="checked" /> Wide</label>
-            <label><input class="boxed_switch" type="radio" name="layout_style" id="is_boxed" value="boxed" /> Boxed</label>
+            <!-- SLIDER START
+            ============================================= -->
+            <section id="slider" class="home-slider clearfix">
+                <div class="slider-wrapper">
+                    <div class="flexslider clearfix">
+                        <ul class="slides">
+                            <li class="slide-item clearfix" style="background-image: url({{asset('public/main/img/slider/hero-slider1.jpg')}});">   
+                                <div class="flex-content">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="caption-wrap">
+                                                <div class="caption wow fadeInUp" data-wow-delay="0.5s">
+                                                    <h1>We are always on the move</h1>
+                                                </div> 
+                                                <div class="caption wow fadeIn" data-wow-delay="1s">
+                                                    <p>You've got something to deliver? Let us do it for you. We are fast efficient and reliable. You'd get the best price here!</p>
+                                                </div>
+                                                <div class="caption wow fadeInUp" data-wow-delay="1.5s">
+                                                    <a href="#" class="button-normal">Get started</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
 
-            <hr />
-
-            <a href="#" class="custom-button purchase">Purchase</a>
-            <div id="hideSwitcher">&times;</div>
-
-        </div>
-    </div>
-    <!-- <div id="showSwitcher" class="styleSecondColor"><i class="fa fa-cog fa-spin"></i></div> -->
-    <!-- Live Style Switcher Ends - demo only -->
-    <!-- Wrapper Starts -->
-    <div class="wrapper">
-        <!-- Header Starts -->
-        @include('includes.main-header')
-        <!-- Header Ends -->
-        <!-- Slider Starts -->
-        <div id="main-slide" class="carousel slide carousel-fade" data-ride="carousel">
-            <!-- Indicators Starts -->
-            <ol class="carousel-indicators visible-lg visible-md">
-                <li data-target="#main-slide" data-slide-to="0" class="active"></li>
-                <li data-target="#main-slide" data-slide-to="1"></li>
-                <li data-target="#main-slide" data-slide-to="2"></li>
-            </ol>
-            <!-- Indicators Ends -->
-            <!-- Carousel Inner Starts -->
-            <div class="carousel-inner">
-                <!-- Carousel Item Starts -->
-                <div class="item active bg-parallax item-1">
-                    <div class="slider-content" style="margin-top: -190px !important;">
-                        <div class="container">
-                            <div class="slider-text text-center" style="padding-top: 0 !important;margin-top:">
-                            <div class="row">
-                    <!-- Section Heading Starts -->
-                    <div class="col-md-12">
-                    <h3 class="slide-title"><span>Bitcoin</span> Exchange <br/>You can <span>Trust</span> </h3>
-                        <p class="message text-center">We buy bitcoin at rates you can't get elsewhere</p>
-                    </div>
-                    <!-- Section Heading Ends -->
-                    <!-- Bitcoin Calculator Form Starts -->
-                    <div class="col-md-12 text-center">
-                        <form class="bitcoin-calculator" id="">
-                            <!-- Input #1 Starts -->
-                            <input class="form-input" id="btc_value" onkeyup="getDollar()" type="number" min="1" name="btc_value" value="1">
-                            <!-- Input #1 Ends -->
-                            <div class="form-info"><i class="fa fa-bitcoin"></i></div>
-                            <div class="form-equal">=</div>
-                            <!-- Input/Result Starts -->
-                            <input class="form-input form-input-result" id="dollar_value" name="dollar_value">
-                            <div class="form-info"><i class="fa fa-dollar"></i></div>
-                            <!-- Input/Result Ends -->
                             
-                        </form>
-                        <p class="info" style="margin-top: 20px;">
-                          <a class="btn btn-primary" href="javascript:void(0)"  data-toggle="modal" data-target="#meRegisterSell" > Sell now</a>
-                        </p>
-                    </div>
-                    <!-- Bitcoin Calculator Form Ends -->
-                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Carousel Item Ends -->
-                
-                <!-- Carousel Item Ends -->
-            </div>
-            <!-- Carousel Inner Ends -->
-            <!-- Carousel Controlers Starts -->
-            <a class="left carousel-control" href="index-2.html#main-slide" data-slide="prev">
-				<span><i class="fa fa-angle-left"></i></span>
-			</a>
-            <a class="right carousel-control" href="index-2.html#main-slide" data-slide="next">
-				<span><i class="fa fa-angle-right"></i></span>
-			</a>
-            <!-- Carousel Controlers Ends -->
-        </div>
-        <!-- Slider Ends -->
-        <!-- Features Section Starts -->
-        <section class="features">
-            <div class="container">
-                <div class="row features-row">
-                    <!-- Feature Box Starts -->
-                    <div class="feature-box col-md-4 col-sm-12">
-                        <span class="feature-icon">
-							<img id="download-bitcoin" src="{{asset('public/mantra/images/icons/orange/download-bitcoin.png')}}" alt="download bitcoin">
-						</span>
-                        <div class="feature-box-content">
-                            <h3>Click on sell</h3>
-                            <p>Type in the value you want to sell above and click sell</p>
-                        </div>
-                    </div>
-                    <!-- Feature Box Ends -->
-                    <!-- Feature Box Starts -->
-                    <div class="feature-box two col-md-4 col-sm-12">
-                        <span class="feature-icon">
-							<img id="add-bitcoins" src="{{asset('public/mantra/images/icons/orange/add-bitcoins.png')}}" alt="add bitcoins">
-						</span>
-                        <div class="feature-box-content">
-                            <h3>Transfer to us</h3>
-                            <p>Send the value of bitcoin you want to sell to our bitcoin address</p>
-                        </div>
-                    </div>
-                    <!-- Feature Box Ends -->
-                    <!-- Feature Box Starts -->
-                    <div class="feature-box three col-md-4 col-sm-12">
-                        <span class="feature-icon">
-							<img id="buy-sell-bitcoins" src="{{asset('public/mantra/images/icons/orange/buy-sell-bitcoins.png')}}" alt="buy and sell bitcoins">
-						</span>
-                        <div class="feature-box-content">
-                            <h3>Finish transaction</h3>
-                            <p>Provide wallet address through which you sent us bitcoin and preferred payment method.</p>
-                        </div>
-                    </div>
-                    <!-- Feature Box Ends -->
-                </div>
-            </div>
-        </section>
-        <!-- Features Section Ends -->
-        <!-- About Section Starts -->
-        <section class="about-us">
-            <div class="container">
-                <!-- Section Title Starts -->
-                <div class="row text-center">
-                    <h2 class="title-head">About <span>Us</span></h2>
-                    <div class="title-head-subtitle">
-                        <p>a website solely for buying of bitcoins at rates you can never get elsewhere</p>
-                    </div>
-                </div>
-                <!-- Section Title Ends -->
-                <!-- Section Content Starts -->
-                <div class="row about-content">
-                    <!-- Image Starts -->
-                    <div class="col-sm-12 col-md-5 col-lg-6 text-center">
-                        <img id="about-us" class="img-responsive img-about-us" src="{{asset('public/mantra/images/about-us.png')}}" alt="about us">
-                    </div>
-                    <!-- Image Ends -->
-                    <!-- Content Starts -->
-                    <div class="col-sm-12 col-md-7 col-lg-6">
-                        <h3 class="title-about">WE ARE ANDORA</h3>
-                        <p class="about-text">A place for everyone who wants to simply sell Bitcoins. Simply transfer bitcoin to our wallet address and click on sell above. Then we pay you immediately your transaction is confirmed typically within 2 hrs, either through paypal or western union depending on which of the two you choose. Nothing extra. Join over 700,000 users from all over the world satisfied with our services.</p>
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#menu1">Our Mission</a></li>
-                            <li><a data-toggle="tab" href="#menu2">Our advantages</a></li>
-                            <li><a data-toggle="tab" href="#menu3">Our guarantees</a></li>
                         </ul>
-                        <div class="tab-content">
-                            <div id="menu1" class="tab-pane fade in active">
-                                <p>Our mission is to provide bitcoin traders the avenue to sell bitcoin at the best rate possible within the shortest period of time possible. We pay our customers either through paypal or western union depending on which you selected. </p>
-                            </div>
-                            <div id="menu2" class="tab-pane fade">
-                                <p>Andora provides the best rate you can ever get on the internet. We also ensure your money is sent as early as possible usually less than 2hrs of initiating the transaction.</p>
-                            </div>
-                            <div id="menu3" class="tab-pane fade">
-                                <p>We are here because we are passionate about open, transparent markets and aim to be a major driving force in widespread adoption, we are the first and the best in cryptocurrency. </p>
+                    </div>
+                </div>
+            </section>
+            <!-- SLIDER END -->
+
+            <!-- CONTENT START
+            ============================================= -->
+            <section id="content" class="clearfix">
+
+                <!-- SERVICES START
+                ============================================= -->
+                <div class="services" style="background-color: #fff !important;margin-top: 40px;">
+                    <div class="section-title text-center wow fadeIn"  style="margin-top: 40px;">
+                        <h2>Our Services</h2>
+                    </div>
+
+                    <div class="services-wrap-carousel">
+                        <div class="item">
+                            <div class="services-content">
+                                <div class="services-image" style="background-image: url({{asset('public/main/img/content/services-item-1.webp')}});"></div>
+                                <div class="services-text">
+                                    <h3 class="title">Bus Network</h3>
+                                    <p>As a leader in Nationwide dispatch service, RaedaXpress excels in providing tailored transportation</p>
+                                    <a href="#" class="button-normal with-icon">
+                                        Read More
+                                        <i class="icon icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                                <div class="overlay"></div>
                             </div>
                         </div>
-                        <a class="btn btn-primary" href="{{url('about')}}">Read More</a>
-                    </div>
-                    <!-- Content Ends -->
+
+                        <div class="item">
+                            <div class="services-content">
+                                <div class="services-image" style="background-image: url({{asset('public/main/img/content/service-item-2.jpg')}});"></div>
+                                <div class="services-text">
+                                    <h3 class="title">Bike Network</h3>
+                                    <p>As a leader in Nationwide dispatch service, RaedaXpress excels in providing tailored transportation</p>
+                                    <a href="#" class="button-normal with-icon">
+                                        Read More
+                                        <i class="icon icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                                <div class="overlay"></div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="services-content">
+                                <div class="services-image" style="background-image: url({{asset('public/main/img/content/services-item-3.jpg')}});"></div>
+                                <div class="services-text">
+                                    <h3 class="title">Car Network</h3>
+                                    <p>As a leader in Nationwide dispatch service, RaedaXpress excels in providing tailored transportation</p>
+                                    <a href="#" class="button-normal with-icon">
+                                        Read More
+                                        <i class="icon icon-arrow-right"></i>
+                                    </a>
+                                </div>
+                                <div class="overlay"></div>
+                            </div>
+                        </div>
+
+
+                    </div>        
                 </div>
-                <!-- Section Content Ends -->
-            </div>
-        </section>
-        <!-- About Section Ends -->
-        <!-- Features and Video Section Starts -->
-        <section class="image-block">
-            <div class="container-fluid">
-                <div class="row">
-                    <!-- Features Starts -->
-                    <div class="col-md-8 ts-padding img-block-left">
-                        <div class="gap-20"></div>
+                <!-- SERVICES END -->
+
+                <!-- FEATURES START
+                ============================================= -->
+                <div class="features wrapper" style="margin-top: -80px;">
+                    <div class="container">
                         <div class="row">
-                            <!-- Feature Starts -->
-                            <div class="col-sm-6 col-md-6 col-xs-12">
-                                <div class="feature text-center">
-                                    <span class="feature-icon">
-										<img id="strong-security" src="{{asset('public/mantra/images/icons/orange/strong-security.png')}}" alt="strong security"/>
-									</span>
-                                    <h3 class="feature-title">Strong Security</h3>
-                                    <p>Protection against DDoS attacks, <br>full data encryption</p>
-                                </div>
+                            <div class="section-title text-center wow fadeIn">
+                                <h2>Why Choose Us</h2>
                             </div>
-                            <!-- Feature Ends -->
-							<div class="gap-20-mobile"></div>
-                            <!-- Feature Starts -->
-                            <div class="col-sm-6 col-md-6 col-xs-12">
-                                <div class="feature text-center">
-                                    <span class="feature-icon">
-										<img id="world-coverage" src="{{asset('public/mantra/images/icons/orange/world-coverage.png')}}" alt="world coverage"/>
-									</span>
-                                    <h3 class="feature-title">World Coverage</h3>
-                                    <p>Providing services in 99% countries<br> around all the globe</p>
+                            
+                            <div class="features-wrap row">
+                                <div class="col-md-4">
+                                    <div class="features-item wow fadeInUp" data-wow-delay="0.5s">
+                                        <div class="icon-wrap">
+                                            <i class="icon icon-delivery"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Ground Shipping</h4>
+                                            <p>We provide excellent pickup and delivery service nationwide at the cheapes rate.</p>
+                                        </div>
+                                    </div>
                                 </div>
+
+                                <div class="col-md-4">
+                                    <div class="features-item wow fadeInUp" data-wow-delay="0.8s">
+                                        <div class="icon-wrap">
+                                            <i class="fa fa-lock"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Security</h4>
+                                            <p>Your items are secured with us and we put topmost priority on security.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="features-item wow fadeInUp" data-wow-delay="1.2s">
+                                        <div class="icon-wrap">
+                                            <i class="fa fa-support"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Customer happyness</h4>
+                                            <p>Our customer care personell are always ready to assist you with all information.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-                            <!-- Feature Ends -->
                         </div>
-                        <div class="gap-20"></div>
+                    </div>
+                </div>
+                <!-- FEATURES END -->
+
+                <!-- SERVICES CALCULATOR START
+                ============================================= 
+                <div class="services-calculator bg-color">
+                    <div class="container">
                         <div class="row">
-                            <!-- Feature Starts -->
-                            <div class="col-sm-6 col-md-6 col-xs-12">
-                                <div class="feature text-center">
-                                    <span class="feature-icon">
-										<img id="payment-options" src="{{asset('public/mantra/images/icons/orange/payment-options.png')}}" alt="payment options"/>
-									</span>
-                                    <h3 class="feature-title">Payment Options</h3>
-                                    <p>Popular methods: Paypal, Western union <br>Skrill</p>
+                            <div class="services-calculator-wrap row">
+                                <div class="intro-section col-md-6">
+                                    <h3 class="title">Services Calculator</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                                    <div class="image">
+                                        <img src="{{asset('public/main/img/content/service-calculator-img.png')}}" alt="" />
+                                    </div>
+                                </div>
+
+                                <div class="form-section col-md-6">
+                                    <form id="calculationform" onsubmit="return false;">
+                                        <p class="intro">* Please fill all inquiry to get your total price</p>
+                                        <fieldset>
+                                            <label>Services</label>
+                                            <select id="services_type" name='services_type' onchange="calculateTotal()">
+                                                <option value="None">Select Services</option>
+                                                <option value="Overland">Overland Network</option>
+                                                <option value="Ocean">Ocean Network</option>
+                                                <option value="Air">Air Freight</option>
+                                                <option value="Cargo">Cargo</option>
+                                                <option value="Storage">Storage</option>
+                                                <option value="Warehousing">Warehousing</option>
+                                            </select>
+
+                                            <label>Type of Goods</label>
+                                            <select id="goods_type" name='goods_type' onchange="calculateTotal()">
+                                                <option value="None">Type of Goods</option>
+                                                <option value="General">General Merchandise</option>
+                                                <option value="Fragile">Fragile Goods</option>
+                                                <option value="Fine">Fine Arts</option>
+                                                <option value="Hazardous">Hazardous Goods</option>
+                                            </select>
+
+                                            <p class="extra-services">
+                                                <label>Extra Services</label>
+                                                <span>
+                                                    <label for='expressdelivery'>Express Delivery</label>
+                                                    <input type="checkbox" id="expressdelivery" name='expressdelivery' onclick="calculateTotal()" />
+                                                </span>
+                                                <span>
+                                                    <label for='insurance'>Add Insurance</label>
+                                                    <input type="checkbox" id="insurance" name='insurance' onclick="calculateTotal()" />
+                                                </span>
+                                                <span>
+                                                    <label for='packaging'>Packaging</label>
+                                                    <input type="checkbox" id="packaging" name='packaging' onclick="calculateTotal()" />
+                                                </span>
+                                            </p>
+
+                                            <p class="fragile clearfix">
+                                                <label>Fragile</label>
+                                                <span>
+                                                    <label for='fragileyes'>Yes</label>
+                                                    <input type="checkbox" id="fragileyes" name='fragileyes' onclick="calculateTotal()" />
+                                                </span>
+                                            </p>
+                                            
+                                            <div id="totalPrice">
+                                                Total Price = $
+                                            </div>
+                                        </fieldset>
+                                    </form>
                                 </div>
                             </div>
-                            <!-- Feature Ends -->
-							<div class="gap-20-mobile"></div>
-                            <!-- Feature Starts -->
-                            <div class="col-sm-6 col-md-6 col-xs-12">
-                                <div class="feature text-center">
-                                    <span class="feature-icon">
-										<img id="mobile-app" src="{{asset('public/mantra/images/icons/orange/mobile-app.png')}}" alt="mobile app"/>
-									</span>
-                                    <h3 class="feature-title">Mobile App</h3>
-                                    <p>Trading via our Mobile App, Available<br> in Play Store & App Store</p>
-                                </div>
-                            </div>
-                            <!-- Feature Ends -->
                         </div>
-                        <div class="gap-20"></div>
+                    </div>
+                </div>
+                 SERVICE CALCULATOR END -->
+
+                <!-- TESTIMONIAL START
+                ============================================= -->
+                <div class="testimonial wrapper with-bg">
+                    <div class="container">
                         <div class="row">
-                            <!-- Feature Starts -->
-                            <div class="col-sm-6 col-md-6 col-xs-12">
-                                <div class="feature text-center">
-                                    <span class="feature-icon">
-										<img id="cost-efficiency" src="{{asset('public/mantra/images/icons/orange/cost-efficiency.png')}}" alt="cost efficiency"/>
-									</span>
-                                    <h3 class="feature-title">Cost efficiency</h3>
-                                    <p>Higher rates for transaction above 5 bitcoin<br> 20% percentage on all referral.</p>
+                            <div class="section-title text-center wow fadeIn">
+                                <h2>Testimonials</h2>
+                            </div>
+                            
+                            <div class="owl-carousel wow fadeIn" data-wow-delay="0.5s">
+                                <div class="testimonial-item">
+                                    <p>We use RaedaXpress every day for our deliveries and they have never dissapointed us. We are so confident to refer you to them.</p>
+
+                                    <div class="client-info">
+                                        <img src="{{asset('public/main/img/content/user.png')}}" style="width: 70px;" alt="" />
+                                        <div class="client-details">
+                                            <h3>John Benson</h3>
+                                            <p>CEO of Candy's Heaven</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="testimonial-item">
+                                    <p>As far as pickup and delivery service is concerened, RaedaXpress is the very best n Nigeria as we speak. Thier services is second to none in the industry.</p>
+
+                                    <div class="client-info">
+                                        <img src="{{asset('public/main/img/content/user.png')}}" style="width: 70px;" alt="" />
+                                        <div class="client-details">
+                                            <h3>Carol Linda</h3>
+                                            <p>Branch Manager of KLM</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- Feature Ends -->
-							<div class="gap-20-mobile"></div>
-                            <!-- Feature Starts -->
-                            <div class="col-sm-6 col-md-6 col-xs-12">
-                                <div class="feature text-center">
-                                    <span class="feature-icon">
-										<img id="high-liquidity" src="{{asset('public/mantra/images/icons/orange/high-liquidity.png')}}" alt="high liquidity"/>
-									</span>
-                                    <h3 class="feature-title">High Liquidity</h3>
-                                    <p>Fast access to high liquidity orderbook<br> for top currency pairs</p>
-                                </div>
-                            </div>
-                            <!-- Feature Ends -->
-                        </div>
-                    </div>
-                    <!-- Features Ends -->
-                    <!-- Video Starts -->
-                    <div class="col-md-4 ts-padding bg-image-1">
-                        <div>
-                            <div class="text-center">
-                                <a class="button-video mfp-youtube" href="{{asset('public/images/vid.mp4')}}"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Video Ends -->
-                </div>
-            </div>
-        </section>
-        <!-- Features and Video Section Ends -->
-        
-        <!-- Quote and Chart Section Starts -->
-        <section class="image-block2">
-            <div class="container-fluid">
-                <div class="row">
-                    <!-- Quote Starts -->
-                    <div class="col-md-4 img-block-quote bg-image-2">
-                        <blockquote>
-                            <p>Bitcoin is one of the most important inventions in all of human history. For the first time ever, anyone can send or receive any amount of money with anyone else, anywhere on the planet, conveniently and without restriction. It’s the dawn of a better, more free world.</p>
-                            <footer><img src="{{asset('public/mantra/images/ceo.jpg')}}" alt="ceo" /> <span>Marc Smith</span> </footer>
-                        </blockquote>
-                    </div>
-                    <!-- Quote Ends -->
-                    <!-- Chart Starts -->
-                    <div class="col-md-8 bg-grey-chart">
-                        <div class="chart-widget dark-chart chart-1">
-                            <div>
-                                <div class="btcwdgt-chart" data-bw-theme="dark"></div>
-                            </div>
-                        </div>
-						<div class="chart-widget light-chart chart-2">
-                            <div>
-                                <div class="btcwdgt-chart" bw-theme="light"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Chart Ends -->
-                </div>
-            </div>
-        </section>
-        <!-- Quote and Chart Section Ends -->
-        <!-- Blog Section Starts -->
-        <section class="blog">
-            <div class="container">
-                <!-- Section Title Starts -->
-                <div class="row text-center">
-                    <h2 class="title-head">Bitcoin <span>Resources</span></h2>
-                    <div class="title-head-subtitle">
-                        <p>Learn more about Bitcoin</p>
-                    </div>
-                </div>
-                <!-- Section Title Ends -->
-                <!-- Section Content Starts -->
-                <div class="row latest-posts-content">
-                    <!-- Article Starts -->
-                    <div class="col-sm-4 col-md-4 col-xs-12">
-                        <div class="latest-post">
-                            <!-- Featured Image Starts -->
-                            <a href="blog-post.html"><img class="img-responsive" src="{{asset('public/mantra/images/blog/blog-post-small-1.jpg')}}" alt="img"></a>
-                            <!-- Featured Image Ends -->
-                            <!-- Article Content Starts -->
-                            <div class="post-body">
-                                <h4 class="post-title">
-                                    <a href="blog-post.html">How Cryptocurrency Begun and Its Impact To Financial Transactions</a>
-                                </h4>
-                                <div class="post-text">
-                                    <p>Bitcoin, first released as open-source software in 2009, is the first decentralized cryptocurrency...</p>
-                                </div>
-                            </div>
-                            <div class="post-date">
-                                <span>01</span>
-                                <span>JAN</span>
-                            </div>
-							<a href="https://en.wikipedia.org/wiki/Cryptocurrency" class="btn btn-primary">read more</a>
-                            <!-- Article Content Ends -->
-                        </div>
-                    </div>
-                    <!-- Article Ends -->
-                    <!-- Article Starts -->
-                    <div class="col-sm-4 col-md-4 col-xs-12">
-                        <div class="latest-post">
-                            <!-- Featured Image Starts -->
-                            <a href="blog-post.html"><img class="img-responsive" src="{{asset('public/mantra/images/blog/blog-post-small-2.jpg')}}" alt="img"></a>
-                            <!-- Featured Image Ends -->
-                            <!-- Article Content Starts -->
-                            <div class="post-body">
-                                <h4 class="post-title">
-                                    <a href="blog-post.html">Cryptocurrency - Who Are Involved With It? Words about members</a>
-                                </h4>
-                                <div class="post-text">
-                                    <p>One of the most enduring mysteries of bitcoin is the identity of its founder, Satoshi Nakamoto...</p>
-                                </div>
-                            </div>
-                            <div class="post-date">
-                                <span>17</span>
-                                <span>MAR</span>
-                            </div>
-							<a href="https://www.investopedia.com/tech/three-people-who-were-supposedly-bitcoin-founder-satoshi-nakamoto/" class="btn btn-primary">read more</a>
-                            <!-- Article Content Ends -->
-                        </div>
-                    </div>
-                    <!-- Article Ends -->
-                    <!-- Article Start -->
-                    <div class="col-sm-4 col-md-4 col-xs-12">
-                        <div class="latest-post">
-                            <!-- Featured Image Starts -->
-                            <a href="blog-post.html"><img class="img-responsive" src="{{asset('public/mantra/images/blog/blog-post-small-3.jpg')}}" alt="img"></a>
-                            <!-- Featured Image Ends -->
-                            <!-- Article Content Starts -->
-                            <div class="post-body">
-                                <h4 class="post-title">
-                                    <a href="blog-post.html">Risks & Rewards Of Investing In Bitcoin. Pros and Cons</a>
-                                </h4>
-                                <div class="post-text">
-                                    <p>Despite bitcoin’s recent popularity, there are some risks when it comes to investing in cryptocurrency...</p>
-                                </div>
-                            </div>
-                            <div class="post-date">
-                                <span>25</span>
-                                <span>FEB</span>
-                            </div>
-							<a href="https://www.forbes.com/sites/forbesfinancecouncil/2018/12/05/the-top-10-risks-of-bitcoin-investing-and-how-to-avoid-them/" class="btn btn-primary">read more</a>
-                            <!-- Article Content Ends -->
+
+                            
                         </div>
                     </div>
                 </div>
-				<!-- Section Content Ends -->
-            </div>
-        </section>
-        <!-- Blog Section Ends -->
-        <!-- Call To Action Section Starts -->
-        <section class="call-action-all">
-			<div class="call-action-all-overlay">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-12">
-							<!-- Call To Action Text Starts -->
-							<div class="action-text">
-								<h2>Get Started Today With Bitcoin</h2>
-								<p class="lead">Open account for free and start trading Bitcoins!</p>
-							</div>
-							<!-- Call To Action Text Ends -->
-							<!-- Call To Action Button Starts -->
-							<p class="action-btn"><a class="btn btn-primary" href="javascript:void(0)"  data-toggle="modal" data-target="#meRegister">Register Now</a></p>
-							<!-- Call To Action Button Ends -->
-						</div>
-					</div>
-				</div>
-			</div>
-        </section>
-        <!-- Call To Action Section Ends -->
-        <!-- Footer Starts -->
-        @include('includes.footer')
-        @include('includes.login')
-        @include('includes.register')
-        @include('includes.sell')
-        <!-- Footer Ends -->
-		<!-- Back To Top Starts  -->
-        <a href="#" id="back-to-top" class="back-to-top fa fa-arrow-up"></a>
-		<!-- Back To Top Ends  -->
-		
+                <!-- TESTIMONIAL END -->
 
-    
+                <!-- LATEST NEWS START
+                ============================================= 
+                <div class="latest-post wrapper bg-color">
+                    <div class="container">
+                        <div class="row">
+                            <div class="section-title text-center wow fadeIn">
+                                <h2>Latest News</h2>
+                            </div>
 
-    </div>
-    @include('includes.main-scripts')
-    
-<script>
-  $(document).ready(function(){
-    $("#btc_value").keyup();
-  })
-  function openLogin(){
-    $("#meRegister").modal('hide');
-    $("#meRegisterSell").modal('hide');
-    $("#meLogin").modal('show');
-  }
-  function openRegister(){
-    $("#meLogin").modal('hide');
-    $("#meRegister").modal('show');
-  }
+                            <div class="post-wrap wow fadeIn" data-wow-delay="0.5s">
+                                <div class="post-item">
+                                    <div class="post-thumb">
+                                        <a href="single-post.html">
+                                            <img src="{{asset('public/main/img/content/latest-post-thumb-1.jpg')}}" alt="" />
+                                            <div class="overlay"></div>
+                                        </a>
+                                    </div>
 
-  function getDollar(){
-    var btc = $("#btc_value").val();
-    $("#btc_value1").val(btc);
-    var dollar = btc * 14122.12;
-    $("#dollar_value").val(dollar.toFixed(2));
-    $("#dollar_value1").val(dollar.toFixed(2));
-  }
-  function getDollar1(){
-    var btc = $("#btc_value1").val();
-    $("#btc_value").val(btc);
-    var dollar = btc * 14122.12;
-    $("#dollar_value").val(dollar.toFixed(2));
-    $("#dollar_value1").val(dollar.toFixed(2));
-  }
-</script>
-    <!-- Wrapper Ends -->
-</body>
+                                    <div class="post-content">
+                                        <div class="date">
+                                            <span>20</span>
+                                            <span>May</span>
+                                        </div>
+                                        <div class="content-wrap">
+                                            <h4>Transformtive Donation For Main Philanthropy</h4>
+                                            <div class="meta">
+                                                <span class="author"><i class="fa fa-user"></i> mochreza</span>
+                                                <span class="views"><i class="fa fa-eye"></i> 95 Views</span>
+                                                <span class="comments last"><i class="fa fa-comment"></i> 2 Comments</span>
+                                            </div>
+                                            <p class="excerpt">Etiamt vehicula elit.Vivauedaus rutrum mi ut aliquam In hac habitasse platore dictum will Integer sagittis neque in porta semes.</p>
+                                            <a href="single-post.html" class="button-normal with-icon">
+                                                Read More
+                                                <i class="icon icon-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <div class="post-item">
+                                    <div class="post-thumb">
+                                        <a href="single-post.html">
+                                            <img src="{{asset('public/main/img/content/latest-post-thumb-2.jpg')}}" alt="" />
+                                            <div class="overlay"></div>
+                                        </a>
+                                    </div>
+
+                                    <div class="post-content">
+                                        <div class="date">
+                                            <span>26</span>
+                                            <span>May</span>
+                                        </div>
+                                        <div class="content-wrap">
+                                            <h4>Corporate Meeting Turns Into a Photo Shooting</h4>
+                                            <div class="meta">
+                                                <span class="author"><i class="fa fa-user"></i> mochreza</span>
+                                                <span class="views"><i class="fa fa-eye"></i> 95 Views</span>
+                                                <span class="comments last"><i class="fa fa-comment"></i> 2 Comments</span>
+                                            </div>
+                                            <p class="excerpt">Etiamt vehicula elit.Vivauedaus rutrum mi ut aliquam In hac habitasse platore dictum will Integer sagittis neque in porta semes.</p>
+                                            <a href="single-post.html" class="button-normal with-icon">
+                                                Read More
+                                                <i class="icon icon-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="post-item">
+                                    <div class="post-thumb">
+                                        <a href="single-post.html">
+                                            <img src="{{asset('public/main/img/content/latest-post-thumb-3.jpg')}}" alt="" />
+                                            <div class="overlay"></div>
+                                        </a>
+                                    </div>
+
+                                    <div class="post-content">
+                                        <div class="date">
+                                            <span>30</span>
+                                            <span>May</span>
+                                        </div>
+                                        <div class="content-wrap">
+                                            <h4>Statistics and Analysis The Key To Success</h4>
+                                            <div class="meta">
+                                                <span class="author"><i class="fa fa-user"></i> mochreza</span>
+                                                <span class="views"><i class="fa fa-eye"></i> 95 Views</span>
+                                                <span class="comments last"><i class="fa fa-comment"></i> 2 Comments</span>
+                                            </div>
+                                            <p class="excerpt">Etiamt vehicula elit.Vivauedaus rutrum mi ut aliquam In hac habitasse platore dictum will Integer sagittis neque in porta semes.</p>
+                                            <a href="single-post.html" class="button-normal with-icon">
+                                                Read More
+                                                <i class="icon icon-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 LATEST NEWS END -->
+
+                <!-- COUNTER NUMBER START
+                ============================================= -->
+                <div class="counter-section wrapper">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="counter-wrap row">
+                                <div class="counter-item col-md-15 wow fadeInUp" data-wow-delay="0.2s">
+                                    <h2 class="counter">1,273</h2>
+                                    <div class="counter-details">
+                                        <p class="heading">Delivered Packages</p>
+                                        <p>The core values are the guiding principles that dictate behavior and action.</p>
+                                    </div>
+                                </div>
+
+                                <div class="counter-item col-md-15 wow fadeInUp" data-wow-delay="0.4s">
+                                    <h2 class="counter">473,754</h2>
+                                    <div class="counter-details">
+                                        <p class="heading">KM Per Year</p>
+                                        <p>The core values are the guiding principles that dictate behavior and action.</p>
+                                    </div>
+                                </div>
+
+                                <div class="counter-item col-md-15 wow fadeInUp" data-wow-delay="0.6s">
+                                    <h2 class="counter">25</h2>
+                                    <div class="counter-details">
+                                        <p class="heading">Years of Experience</p>
+                                        <p>The core values are the guiding principles that dictate behavior and action.</p>
+                                    </div>
+                                </div>
+
+                                <div class="counter-item col-md-15 wow fadeInUp" data-wow-delay="0.8s">
+                                    <h2 class="counter">719</h2>
+                                    <div class="counter-details">
+                                        <p class="heading">Happy Clients</p>
+                                        <p>The core values are the guiding principles that dictate behavior and action.</p>
+                                    </div>
+                                </div>
+
+                                <div class="counter-item col-md-15 wow fadeInUp" data-wow-delay="1s">
+                                    <h2 class="counter">4,234</h2>
+                                    <div class="counter-details">
+                                        <p class="heading">Tons of Goods</p>
+                                        <p>The core values are the guiding principles that dictate behavior and action.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- COUNTER NUMBER END -->
+
+            </section>
+            <!-- CONTENT END -->
+            
+            <!-- FOOTER START
+            ============================================= -->
+            @include('includes.footer')
+            <!-- FOOTER END -->
+
+        </div>
+        <!-- MAIN WRAPPER END -->
+
+        <!-- Footer Scripts
+        ============================================= -->
+        <!-- External -->
+        @include('includes.main-scripts')
+    </body>
 </html>

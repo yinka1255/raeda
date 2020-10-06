@@ -11,9 +11,8 @@ use App\Customer;
 use App\Order;
 use App\Profile;
 use App\Admin;
-use App\Book;
-use App\Picture;
-use App\Sale;
+use App\Merchant;
+use App\City;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
@@ -39,129 +38,95 @@ class UsersController extends Controller{
         }
 
         $user = new User;
+        $user->first_name = $request->input("first_name");
+        $user->last_name = $request->input("last_name");
+        $user->phone1 = $request->input("phone");
         $user->email = $request->input("email");
         $user->password = bcrypt($request->input("password"));
-        $user->status = 1;
-        $user->type = 2;
+        $user->status = "Active";
+        $user->role = "customer";
         if($user->save()){
-            $customer = new Customer;
-            $customer->user_id = $user->id;
-            $customer->email = $request->input("email");
-            $customer->name = $request->input("name");
-            if($customer->save()){
-                Auth::loginUsingId($user->id);
-                
-                Session::flash('success', 'Thank you for being a part of Andora MFG. You are now logged in');
-                return redirect('customers/profile');
-            }
-            else{
-                Session::flash('error', 'Sorry! An error occured while trying to save your information. Kindly contact administrator');
-                return back();
-            }
-        }  
-    }
-
-    public function customerRegisterSell(Request $request){
-        
-        $check = User::where("email", $request->input("email"))->first();
-        if($check != null){
-            
-            Session::flash('error', 'Sorry! The email provided already exist. Kindly login to your account');
+            Auth::loginUsingId($user->id);
+            Session::flash('success', 'Thank you for being a part of Andora MFG. You are now logged in');
+            return redirect('customers/dashboard');
+        }
+        else{
+            Session::flash('error', 'Sorry! An error occured while trying to save your information. Kindly contact administrator');
             return back();
         }
-
-        $user = new User;
-        $user->email = $request->input("email");
-        $user->password = bcrypt($request->input("password"));
-        $user->status = 1;
-        $user->type = 2;
-        if($user->save()){
-            $customer = new Customer;
-            $customer->user_id = $user->id;
-            $customer->email = $request->input("email");
-            $customer->name = $request->input("name");
-            if($customer->save()){
-                $order = new Order;
-                $order->customer_id = $customer->id;
-                $order->bitcoin_address = $request->input('bitcoin_address');
-                $order->btc_value = $request->input('btc_value');
-                $order->dollar_value = $request->input('dollar_value');
-                $order->payment_method = $request->input('payment_method');
-                $order->email = $request->input('email');
-                $order->save();
-                Auth::loginUsingId($user->id);
-                
-                Session::flash('success', 'We have received your submission. We shall attend to it as soon as possible');
-                return redirect('customers/profile');
-            }
-            else{
-                Session::flash('error', 'Sorry! An error occured while trying to save your information. Kindly contact administrator');
-                return back();
-            }
-        }  
     }
+
+    
 
     public function mobileRegister(Request $request){
         
         $check = User::where("email", $request->input("email"))->first();
         if($check != null){
-            
             return response()->json(['error'=> 'Sorry! The email provided already exist. Kindly login to your account']);
         }
 
-        $cus = Customer::where("phone", $request->input("phone"))->first();
-        if($cus != null){
-            $user = User::where("id", $cus->user_id)->first();
-            $user->email = $request->input("email");
-            $user->phone = $request->input("phone");
-            $user->password = bcrypt($request->input("password"));
-            $user->status = 1;
-            $user->type = 2;
-            if($user->save()){
-                $customer = $cus;
-                $customer->user_id = $user->id;
-                $customer->email = $request->input("email");
-                $customer->name = $request->input("name");
-                $customer->phone = $request->input("phone");
-                if($customer->save()){
-                    //Auth::loginUsingId($user->id);
-                    $this->sendWelcomeMail($customer);
-                    
-                    return response()->json(["success"=> "Thank you for being a part of AirTnd. You are now logged in", "customer"=>$customer]);
-                }
-                else{
-                    return response()->json(['error'=> 'Sorry! An error occured while trying to save your information. Kindly contact administrator']);
-                }
-            }     
-            else{
-                return response()->json(['error'=> 'Sorry! An error occured while trying to save your information. Kindly contact administrator']);
+        $user = new User;
+        $user->email = $request->input("email");
+        $user->password = bcrypt($request->input("password"));
+        $user->phone1 = $request->input("phone");
+        $user->first_name = $request->input("firstName");
+        $user->last_name = $request->input("lastName");
+        //$user->city = $request->input("city");
+        $user->status = "Active";
+        $user->role = "Customer";
+        if($user->save()){
+            //$this->sendWelcomeMail($member);
+            return response()->json(["success"=> "Thank you for being a part of Errand360. You are now logged in", "customer"=>$user]);
+        }
+        else{
+            return response()->json(['error'=> 'Sorry! An error occured while trying to save your information. Kindly contact administrator']);
+        }
+        
+    }
+    public function mobileRetailerRegister(Request $request){
+        $merchant = new Merchant;
+        $merchant->business_name = $request->input('businessName');
+        $merchant->merchant_category_id = $request->input('businessCategoryId');
+        //$merchant->business_name = $request->input('businessName');
+        $merchant->city_id = $request->input('cityId');
+        $merchant->state_id = $request->input('stateId');
+        $merchant->address = $request->input('address');
+        $merchant->longitude= substr($request->input('longitude'), 0, 8);
+        $merchant->latitude = substr($request->input('latitude'), 0, 8);
+        $merchant->cac_no = $request->input('cacNo');
+        $merchant->status = "Active";
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $imageName  = time() . '.' . $image->guessExtension();
+            $path = "storage/app/public/merchants/logo/";
+            $image->move($path, $imageName);
+            $merchant->logo = $path.$imageName;
+            if($merchant->save()){
+                $user = new User;
+                $user->email = $request->input("email");
+                $user->password = bcrypt($request->input("password"));
+                $user->phone1 = $request->input("phone");
+                $user->first_name = $request->input("firstName");
+                $user->last_name = $request->input("lastName");
+                //$user->city = $request->input("city");
+                $user->status = "Active";
+                $user->merchant_id = $merchant->id;
+                $user->role = "merchant";
+                $user->save();
+                $merchant = Merchant::join("users", "users.merchant_id", "merchants.id")
+                ->join("cities", "cities.id", "merchants.city_id")
+                ->join("states", "states.id", "merchants.state_id")
+                ->select("users.*", "merchants.*", "states.name as state_name", "states.id as state_id", "cities.name as city_name", "cities.id as city_id",  "users.id as id")
+                ->where("users.id", $user->id)
+                ->first();
+                return response()->json(['success' => 'Your account has been created',  "user"=>$merchant],200);
+            }else{
+                return response()->json(['error' => 'An error occured while trying to upload picture'],200);
             }
-        }else{
-            $user = new User;
-            $user->email = $request->input("email");
-            $user->password = bcrypt($request->input("password"));
-            $user->phone = $request->input("phone");
-            $user->status = 1;
-            $user->type = 2;
-            if($user->save()){
-                $customer = new Customer;
-                $customer->user_id = $user->id;
-                $customer->email = $request->input("email");
-                $customer->name = $request->input("name");
-                $customer->phone = $request->input("phone");
-                if($customer->save()){
-                    //Auth::loginUsingId($user->id);
-                    $this->sendWelcomeMail($member);
-                    
-                    return response()->json(["success"=> "Thank you for being a part of AirTnd. You are now logged in", "customer"=>$customer]);
-                }
-                else{
-                    return response()->json(['error'=> 'Sorry! An error occured while trying to save your information. Kindly contact administrator']);
-                }
-            }     
-            else{
-                return response()->json(['error'=> 'Sorry! An error occured while trying to save your information. Kindly contact administrator']);
-            }
+        }
+        
+        else{
+            return response()->json(['error' => 'You must upload a logo'],200);
         }
     }
 
